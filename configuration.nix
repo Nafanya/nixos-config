@@ -15,6 +15,8 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   # GC weekly to lower disk usage
   nix.gc = {
     automatic = true;
@@ -52,7 +54,21 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
+  services.xserver.videoDrivers = [ "nvidia" ];
 
+  ####hardware.nvidia = {
+  ####  nvidiaSettings = true;
+  ####  modesetting.enable = true;
+  ####  powerManagement = {
+  ####    enable = true;
+  ####    finegrained = true;
+  ####  };
+  ####  prime = {
+  ####    offload.enable = true;
+  ####    intelBusId
+  ####  };
+  ####  package = config.boot.kernelPackages.nvidiaPackages.beta;
+  ####};
   
 
   # Configure keymap in X11

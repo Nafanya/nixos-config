@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "i915" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
@@ -42,13 +42,13 @@
   # high-resolution display
   ## hardware.video.hidpi.enable = lib.mkDefault true;
 
-
-  # https://nixos.wiki/wiki/Nvidia#Nvidia_PRIME
-  ###hardware.opengl = {
-  ###  enable = true;
-  ###  driSupport = true;
-  ###  driSupport32Bit = true;
-  ###};
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [ vaapiIntel vaapiVdpau libvdpau-va-gl ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  };
 
   #services.xserver.videoDrivers = ["nvidia"];
 
