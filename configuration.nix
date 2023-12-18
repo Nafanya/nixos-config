@@ -109,7 +109,7 @@
 
   environment.variables.EDITOR = "vim";
 
-  programs.sway.enable = true;
+  programs.hyprland.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
