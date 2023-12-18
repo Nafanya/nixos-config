@@ -81,21 +81,13 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+
+    rofi # app launcher for hyprland
   ];
 
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
+  # kitty -- a cross-platform, GPU-accelerated terminal emulator
+  programs.kitty = {
     enable = true;
-    # custom settings
-    settings = {
-      env.TERM = "xterm-256color";
-      font = {
-        size = 12;
-        draw_bold_text_with_bright_colors = true;
-      };
-      scrolling.multiplier = 5;
-      selection.save_to_clipboard = true;
-    };
   };
 
   programs.bash = {
