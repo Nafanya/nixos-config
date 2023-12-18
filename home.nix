@@ -37,6 +37,10 @@
     enable = true;
   };
 
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "sway";
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
