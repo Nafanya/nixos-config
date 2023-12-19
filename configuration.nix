@@ -88,6 +88,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  fonts = {
+    enableDefaultFonts = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nikita = {
     isNormalUser = true;
@@ -131,6 +135,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

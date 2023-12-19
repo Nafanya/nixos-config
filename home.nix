@@ -220,6 +220,15 @@
     enable = true;
   };
 
+  home.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    XDG_SESSION_TYPE = "wayland";
+    LIBVA_DRIVER_NAME = "nvidia";
+    MOZ_ENABLE_WAYLAND = "1";
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
@@ -274,6 +283,14 @@
   # kitty -- a cross-platform, GPU-accelerated terminal emulator
   programs.kitty = {
     enable = true;
+    shellIntegration.enableZshIntegration = true;
+    settings = {
+      font_family = "monospace";
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
+      font_size = "14.0";
+    };
   };
 
   services.dunst = {
@@ -294,8 +311,6 @@
       theme = "agnoster";
     };
   };
-
-  xdg.enable = true;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
