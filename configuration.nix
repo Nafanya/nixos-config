@@ -119,6 +119,10 @@
 
   programs.hyprland.enable = true;
 
+  programs.steam = {
+    enable = true;
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
