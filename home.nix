@@ -95,19 +95,19 @@
     enable = true;
   };
 
-  programs.bash = {
+  programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    # TODO add your cusotm bashrc here
-    #bashrcExtra = ''
-    #  export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-    #'';
-
-    # set some aliases, feel free to add more or remove some
-    #shellAliases = {
-    #  urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-    #  urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-    #};
+    history = {
+      size = 100000;
+    };
+    shellAliases = {
+      update = "sudo nixos-rebuild switch";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "agnoster";
+    };
   };
 
   # This value determines the home Manager release that your

@@ -95,6 +95,7 @@
     packages = with pkgs; [
       firefox
     ];
+    shell = pkgs.zsh;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -106,6 +107,8 @@
     vim
     wget
   ];
+
+  programs.zsh.enable = true;
 
   environment.variables.EDITOR = "vim";
   environment.sessionVariables = {
