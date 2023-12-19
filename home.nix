@@ -273,12 +273,12 @@
     rofi # app launcher for hyprland
   ];
 
-  #home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-  #  $DRY_RUN_CMD sed 's/^Exec=/&nvidia-offload /' \
-  #  ${pkgs.steam}/share/applications/steam.desktop \
-  #  > ${config.xdg.dataHome}/applications/steam.desktop
-  #  $DRY_RUN_CMD chmod +x ${config.xdg.dataHome}/applications/steam.desktop
-  #'';
+  home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD sed 's/^Exec=/&nvidia-offload /' \
+    ${pkgs.steam}/share/applications/steam.desktop \
+    > ${config.xdg.dataHome}/applications/steam.desktop
+    $DRY_RUN_CMD chmod +x ${config.xdg.dataHome}/applications/steam.desktop
+  '';
 
   # kitty -- a cross-platform, GPU-accelerated terminal emulator
   programs.kitty = {
