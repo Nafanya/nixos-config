@@ -50,40 +50,45 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
-  #services.xserver.videoDrivers = ["nvidia"];
+  hardware.i2c = {
+    enable = true;
+  };
 
-  ###hardware.nvidia = {
-  ###  # Modesetting is required.
-  ###  ####modesetting.enable = true;
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
 
-  ###  # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-  ###  powerManagement.enable = true;
-  ###  # Fine-grained power management. Turns off GPU when not in use.
-  ###  # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-  ###  powerManagement.finegrained = true;
+  hardware.nvidia = {
+    # Modesetting is required.
+    modesetting.enable = true;
 
-  ###  # Use the NVidia open source kernel module (not to be confused with the
-  ###  # independent third-party "nouveau" open source driver).
-  ###  # Support is limited to the Turing and later architectures. Full list of 
-  ###  # supported GPUs is at: 
-  ###  # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-  ###  # Only available from driver 515.43.04+
-  ###  # Currently alpha-quality/buggy, so false is currently the recommended setting.
-  ###  open = false;
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    powerManagement.enable = true;
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
 
-  ###  # Enable the Nvidia settings menu,
-  ###      # accessible via `nvidia-settings`.
-  ###  nvidiaSettings = true;
+    # Use the NVidia open source kernel module (not to be confused with the
+    # independent third-party "nouveau" open source driver).
+    # Support is limited to the Turing and later architectures. Full list of 
+    # supported GPUs is at: 
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Only available from driver 515.43.04+
+    # Currently alpha-quality/buggy, so false is currently the recommended setting.
+    open = false;
 
-  ###  # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  ###  package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # Enable the Nvidia settings menu,
+    # accessible via `nvidia-settings`.
+    nvidiaSettings = true;
 
-  ###  prime = {
-  ###      offload.enable = true;
-  ###      intelBusId     = "PCI:0:2:0";
-  ###      nvidiaBusId    = "PCI:1:0:0";
-  ###    };
-  ###};
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+
+    #prime = {
+    #    offload.enable = true;
+    #    intelBusId     = "PCI:0:2:0";
+    #    nvidiaBusId    = "PCI:1:0:0";
+    #};
+  };
 
   # Enables Nvidia drivers
   ##nixpkgs.config.allowUnfreePredicate = pkg:

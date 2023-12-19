@@ -30,6 +30,7 @@
     enable = true;
     userName = "Nikita Iashchenko";
     userEmail = "nikita.yaschenko@gmail.com";
+    diff-so-fancy.enable = true;
   };
 
   programs.neovim = {
