@@ -7,14 +7,9 @@
     enable = true;
     enableNvidiaPatches = true;
     xwayland.enable = true;
+    extraConfig = builtins.readFile ./hyprland.conf;
   };
 
-  xdg.configFile = {
-    "hypr/hyprland.conf" = {
-      source = ./hyprland.conf;
-    };
-  };
-  
   home.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
