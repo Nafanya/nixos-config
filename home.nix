@@ -89,7 +89,6 @@
     usbutils # lsusb
 
     rofi # app launcher for hyprland
-    waybar
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

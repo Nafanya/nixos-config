@@ -9,6 +9,18 @@
     xwayland.enable = true;
     extraConfig = builtins.readFile ./hyprland.conf;
   };
+  
+  programs.waybar = {
+    enable = true;
+    systemd.enable = true;
+  };
+
+  xdg.configFile = {
+    "hypr/waybar" = {
+      source = ./waybar;
+      recursive = true;
+    };
+  };
 
   home.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";

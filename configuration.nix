@@ -89,7 +89,12 @@
   # services.xserver.libinput.enable = true;
 
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      font-awesome
+      powerline-fonts
+      powerline-symbols
+    ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
