@@ -115,6 +115,7 @@
     git
     vim
     wget
+    htop
   ];
 
   programs.zsh.enable = true;
