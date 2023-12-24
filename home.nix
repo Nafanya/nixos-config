@@ -27,6 +27,7 @@
 
   imports = [
     ./hyprland
+    ./spotify.nix
   ];
 
   # basic configuration of git, please change to your own
@@ -92,8 +93,6 @@
     usbutils # lsusb
 
     rofi # app launcher for hyprland
-
-    spotify-tui
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -133,10 +132,6 @@
       plugins = [ "git" ];
       theme = "agnoster";
     };
-  };
-
-  services.spotifyd = {
-    enable = true;
   };
 
   # This value determines the home Manager release that your
