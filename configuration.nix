@@ -94,6 +94,7 @@
       font-awesome
       powerline-fonts
       powerline-symbols
+      source-code-pro
     ];
   };
 
