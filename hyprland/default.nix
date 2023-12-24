@@ -16,10 +16,7 @@
   };
 
   xdg.configFile = {
-    "hypr/waybar" = {
-      source = ./waybar;
-      recursive = true;
-    };
+    "hypr/waybar/config".source = ./waybar/config.jsonc;
   };
 
   home.sessionVariables = {
