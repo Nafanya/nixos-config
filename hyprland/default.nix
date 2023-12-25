@@ -16,8 +16,8 @@
   };
 
   xdg.configFile = {
-    "hypr/waybar/config".source = ./waybar/config.jsonc;
-    "hypr/waybar/style.css".source = ./waybar/style.css;
+    "waybar/config".source = ./waybar/config.jsonc;
+    "waybar/style.css".source = ./waybar/style.css;
   };
 
   home.sessionVariables = {
