@@ -52,6 +52,7 @@
 
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs29;
   };
 
 
@@ -97,6 +98,9 @@
     usbutils # lsusb
 
     rofi # app launcher for hyprland
+
+    rnix-lsp
+    nixfmt
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
