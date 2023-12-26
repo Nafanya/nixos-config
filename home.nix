@@ -25,10 +25,7 @@
   #  "Xft.dpi" = 172;
   #};
 
-  imports = [
-    ./hyprland
-    ./spotify.nix
-  ];
+  imports = [ ./hyprland ./spotify.nix ];
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -45,16 +42,13 @@
     defaultEditor = true;
     enable = true;
     vimAlias = true;
-    plugins = [
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-    ];
+    plugins = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
   };
 
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29;
   };
-
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -87,7 +81,7 @@
     # with more details log output
     #nix-output-monitor
 
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
     iotop # io monitoring
 
     # system tools
@@ -123,18 +117,12 @@
     };
   };
 
-  services.dunst = {
-    enable = true;
-  };
+  services.dunst = { enable = true; };
 
   programs.zsh = {
     enable = true;
-    history = {
-      size = 100000;
-    };
-    shellAliases = {
-      update = "sudo nixos-rebuild switch";
-    };
+    history = { size = 100000; };
+    shellAliases = { update = "sudo nixos-rebuild switch"; };
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];

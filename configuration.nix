@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -69,7 +68,6 @@
   ####  };
   ####  package = config.boot.kernelPackages.nvidiaPackages.beta;
   ####};
-  
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -102,9 +100,7 @@
   users.users.nikita = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      firefox
-    ];
+    packages = with pkgs; [ firefox ];
     shell = pkgs.zsh;
   };
 
@@ -112,12 +108,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-    htop
-  ];
+  environment.systemPackages = with pkgs; [ git vim wget htop ];
 
   programs.zsh.enable = true;
 

@@ -1,13 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home.packages = with pkgs; [
-    spotify-tui
-  ];
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [ spotify-tui ];
 
-  services.spotifyd = {
-    enable = true;
-  };
+  services.spotifyd = { enable = true; };
 }

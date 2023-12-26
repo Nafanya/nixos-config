@@ -1,15 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
     xwayland.enable = true;
     extraConfig = builtins.readFile ./hyprland.conf;
   };
-  
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;

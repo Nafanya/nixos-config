@@ -4,26 +4,27 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "i915" ]; # Enable Intel iGPU early in the boot process
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules =
+    [ "i915" ]; # Enable Intel iGPU early in the boot process
   boot.kernelModules = [ "kvm-intel" "i915" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/44580c9d-d408-4c12-9bd6-7699d39e8834";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/44580c9d-d408-4c12-9bd6-7699d39e8834";
+    fsType = "ext4";
+  };
 
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/2838ccd2-89c6-4506-a85b-4ecc75f723e7";
+  boot.initrd.luks.devices."nixos".device =
+    "/dev/disk/by-uuid/2838ccd2-89c6-4506-a85b-4ecc75f723e7";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/4265-94FF";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/4265-94FF";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -38,7 +39,8 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
   # high-resolution display
   ## hardware.video.hidpi.enable = lib.mkDefault true;
 
@@ -50,12 +52,10 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   };
 
-  hardware.i2c = {
-    enable = true;
-  };
+  hardware.i2c = { enable = true; };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     # Modesetting is required.
@@ -84,22 +84,23 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
-        offload.enable = true;
-        intelBusId     = "PCI:0:2:0";
-        nvidiaBusId    = "PCI:1:0:0";
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
   };
 
-  environment.systemPackages = 
+  environment.systemPackages =
     # Running `nvidia-offload vlc` would run VLC with dGPU
-    let nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-      export __NV_PRIME_RENDER_OFFLOAD=1
-      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-      export __GLX_VENDOR_LIBRARY_NAME=nvidia
-      export __VK_LAYER_NV_optimus=NVIDIA_only
+    let
+      nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+        export __NV_PRIME_RENDER_OFFLOAD=1
+        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+        export __GLX_VENDOR_LIBRARY_NAME=nvidia
+        export __VK_LAYER_NV_optimus=NVIDIA_only
 
-      exec "$@"
-    '';
+        exec "$@"
+      '';
     in [ nvidia-offload ];
 
   # Enables Nvidia drivers
