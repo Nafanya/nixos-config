@@ -53,22 +53,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  ####services.xserver.videoDrivers = [ "nvidia" ];
-
-  ####hardware.nvidia = {
-  ####  nvidiaSettings = true;
-  ####  modesetting.enable = true;
-  ####  powerManagement = {
-  ####    enable = true;
-  ####    finegrained = true;
-  ####  };
-  ####  prime = {
-  ####    offload.enable = true;
-  ####    intelBusId
-  ####  };
-  ####  package = config.boot.kernelPackages.nvidiaPackages.beta;
-  ####};
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -113,14 +97,6 @@
   programs.zsh.enable = true;
 
   environment.variables.EDITOR = "vim";
-  #environment.sessionVariables = {
-  #  WLR_NO_HARDWARE_CURSORS = "1";
-  #  __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  #  GBM_BACKEND = "nvidia-drm";
-  #  XDG_SESSION_TYPE = "wayland";
-  #  LIBVA_DRIVER_NAME = "nvidia";
-  #  MOZ_ENABLE_WAYLAND = "1";
-  #};
 
   programs.steam = {
     enable = true;
