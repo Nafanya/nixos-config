@@ -47,7 +47,7 @@
       # Run the following command in the flake's directory to
       # deploy this configuration on any NixOS system:
       #   sudo nixos-rebuild switch --flake .#pc
-      "pc" = nixpkgs.lib.nixosSystem {
+      pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         # The Nix module system can modularize configuration,
@@ -105,7 +105,7 @@
           }
         ];
       };
-      "lynx" = nixpkgs.lib.nixosSystem {
+      lynx = nixpkgs.lib.nixosSystem {
         system = "x86-64-linux";
         modules = [ ./hosts/lynx ];
       };
