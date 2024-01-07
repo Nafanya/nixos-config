@@ -5,13 +5,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      # My configs
-      ./vim.nix
-    ];
+    # My configs
+    ./vim.nix
+  ];
 
   # DDC to control monitor via ddcutil
   hardware.i2c.enable = true;
@@ -66,10 +65,8 @@
   users.users.nikita = {
     isNormalUser = true;
     description = "Nikita Iashchenko";
-    extraGroups = [ "networkmanager" "wheel" "i2c"];
-    packages = with pkgs; [
-      zsh
-    ];
+    extraGroups = [ "networkmanager" "wheel" "i2c" ];
+    packages = with pkgs; [ zsh ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG/p7bL2u2cNo+8eGd/Wd5XVw61066si+e7GKmXOYPU nikita.yaschenko@gmail.com"
       "ssh-ed25519 LHS4reXkb9fI7vmrKliH0uWIWx2jCA0c71ewhdJ0a0I nikita.yaschenko+win@gmail.com"
@@ -84,16 +81,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     wget
-     neovim
-     tmux
-     htop
-     bmon
-     git
-     dnsmasq
-     bat
-     ddcutil
-     vlc
+    wget
+    neovim
+    tmux
+    htop
+    bmon
+    git
+    dnsmasq
+    bat
+    ddcutil
+    vlc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -105,7 +102,7 @@
   # };
 
   programs.zsh.enable = true;
-  
+
   # List services that you want to enable:
 
   services.logind = {
@@ -158,19 +155,18 @@
       "met"
       "radio_browser"
     ];
-    extraPackages = python3Packages: with python3Packages; [
-      securetar
-    ];
+    extraPackages = python3Packages: with python3Packages; [ securetar ];
     config = {
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/
-      default_config = {};
+      default_config = { };
     };
   };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22 53
+    22
+    53
     8123 # jellyfin
   ];
   networking.firewall.allowedUDPPorts = [ 53 ];
