@@ -4,11 +4,11 @@
   users.users.steam = {
     isNormalUser = true;
     description = "Steam runner";
-    packages = with pkgs; [ steam ];
+    packages = with pkgs; [ steam steamcmd ];
   };
 
-  #programs.steam = {
-  #  enable = true;
-  #  dedicatedServer.openFirewall = true;
-  #};
+  programs.steam = {
+    enable = true;
+    dedicatedServer.openFirewall = true;
+  };
 }
