@@ -10,6 +10,8 @@
 
     # My configs
     ./vim.nix
+
+    ./steam.nix
   ];
 
   # DDC to control monitor via ddcutil
