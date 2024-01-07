@@ -25,7 +25,7 @@
       User = "steam";
       # the command to execute when the service starts up
       # TODO: extract options from script
-      ExecStart = "/home/steam/games/valheim/my-server.sh";
+      ExecStart = "steam-run $HOME/games/valheim/my-server.sh";
       KillSignal = "SIGINT";
       Restart = "always";
       RestartSec = 30;
