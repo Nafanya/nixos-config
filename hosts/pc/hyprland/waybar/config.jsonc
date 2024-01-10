@@ -156,7 +156,12 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    },
+    "hyprland/language": {
+        "format-en": "🇬🇧",
+        "format-ru": "🇺🇦"
     },
     "custom/media": {
         "format": "{icon} {}",
