@@ -81,7 +81,7 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
-   
+
     # audio
     pavucontrol
     playerctl
@@ -90,6 +90,8 @@
     nvtop
 
     rofi # app launcher for hyprland
+
+    telegram-desktop
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
