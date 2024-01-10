@@ -92,6 +92,7 @@
     rofi # app launcher for hyprland
 
     telegram-desktop
+    discord
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
