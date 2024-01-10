@@ -77,6 +77,10 @@
       powerline-fonts
       powerline-symbols
       source-code-pro
+      (nerdfonts.override {
+        fonts =
+          [ "SpaceMono" "JetBrainsMono" "DejaVuSansMono" "SourceCodePro" ];
+      })
     ];
   };
 
