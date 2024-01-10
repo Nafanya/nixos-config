@@ -137,6 +137,9 @@
 
   programs.ssh.startAgent = true;
 
+  services.hardware.openrgb = { enable = true; };
+  hardware.openrazer.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ];
