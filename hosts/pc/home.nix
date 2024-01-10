@@ -52,37 +52,28 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-
-    neofetch
-    nnn # terminal file manager
-
-    # archives
-    zip
-    unzip
-
     # utils
-    ripgrep # recursively searches directories for a regex pattern
+    ripgrep
     fzf # A command-line fuzzy finder
     bat # A cat(1) clone with syntax highlighting and Git integration
-
-    # networking tools
+    btop # replacement of htop/nmon
+    iotop # io monitoring
     aria2 # A lightweight multi-protocol & multi-source command-line download utility
+    neofetch
 
     # misc
     file
     which
     tree
+    zip
+    unzip
 
     # nix related
     #
     # it provides the command `nom` works just like `nix`
     # with more details log output
-    #nix-output-monitor
-
-    btop # replacement of htop/nmon
-    iotop # io monitoring
+    rnix-lsp # for emacs
+    nixfmt
 
     # system tools
     sysstat
@@ -90,11 +81,15 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
+   
+    # audio
+    pavucontrol
+    playerctl
+
+    #graphics
+    nvtop
 
     rofi # app launcher for hyprland
-
-    rnix-lsp
-    nixfmt
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
