@@ -54,6 +54,15 @@
   services.xserver.enable = true;
   services.xserver.autorun = false;
   services.xserver.displayManager.startx.enable = true;
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      dmenu
+      i3status
+      i3lock
+      i3blocks
+    ];
+  };
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
