@@ -1,9 +1,10 @@
 { config, pkgs, ... }: {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true;
-    xwayland.enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
+  wayland.windowManager = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      extraConfig = builtins.readFile ./hyprland.conf;
+    };
   };
 
   programs.waybar = {

@@ -25,7 +25,7 @@
   #  "Xft.dpi" = 172;
   #};
 
-  imports = [ ./hyprland ./spotify ];
+  imports = [ ./spotify ];
 
   # basic configuration of git, please change to your own
   programs.git = {

@@ -8,9 +8,9 @@
 
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules =
-    [ "i915" ]; # Enable Intel iGPU early in the boot process
-  boot.kernelModules = [ "kvm-intel" "i915" ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.blacklistedKernelModules = [ "nouveau" "i915" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -65,7 +65,7 @@
     powerManagement.enable = true;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -83,11 +83,11 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.beta;
 
-    prime = {
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+    ####prime = {
+    ####  offload.enable = true;
+    ####  intelBusId = "PCI:0:2:0";
+    ####  nvidiaBusId = "PCI:1:0:0";
+    ####};
   };
 
   environment.systemPackages =
