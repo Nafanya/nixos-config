@@ -56,20 +56,10 @@
   services.xserver.displayManager.startx.enable = true;
   services.xserver.windowManager.i3 = {
     enable = true;
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-      i3lock
-      i3blocks
-    ];
+    extraPackages = with pkgs; [ dmenu i3status i3lock i3blocks ];
   };
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
+  services.xserver.layout = "us,ru";
+  services.xserver.xkbOptions = "grp:caps_toggle";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
