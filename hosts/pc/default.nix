@@ -103,6 +103,18 @@
 
   environment.variables.EDITOR = "vim";
 
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   programs.steam = {
     enable = true;
     remotePlay = { openFirewall = true; };
@@ -127,11 +139,12 @@
   xdg.portal = {
     enable = true;
     config.common.default = "*";
-    extraPortals = with pkgs; [
-      #xdg-desktop-portal-hyprland
-      #xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs;
+      [
+        #xdg-desktop-portal-hyprland
+        #xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
