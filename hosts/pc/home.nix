@@ -93,6 +93,7 @@
 
     telegram-desktop
     discord
+    qjackctl
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

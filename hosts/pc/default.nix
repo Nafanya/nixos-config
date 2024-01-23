@@ -117,6 +117,7 @@
     audio.enable = true;
     pulse.enable = true;
     wireplumber.enable = true;
+    jack.enable = true;
     alsa = {
       enable = true;
       support32Bit = true;
@@ -127,8 +128,8 @@
     enable = true;
     config.common.default = "*";
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-wlr
+      #xdg-desktop-portal-hyprland
+      #xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
     ];
   };
