@@ -124,15 +124,19 @@
     };
   };
 
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
-    config.common.default = "*";
-    extraPortals = with pkgs;
-      [
-        #xdg-desktop-portal-hyprland
-        #xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
+    wlr.enable = true;
+    config = {
+      common = { default = [ "gtk" ]; };
+      i3 = { default = [ "gtk" ]; };
+      hyprland = { default = [ "hyprland" ]; };
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -154,8 +158,8 @@
   hardware.openrazer.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 2456 2457 2458 ];
-  networking.firewall.allowedUDPPorts = [ 2456 2457 2458 ];
+  networking.firewall.allowedTCPPorts = [ 8080 ];
+  # networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
