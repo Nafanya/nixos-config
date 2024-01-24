@@ -94,6 +94,8 @@
     telegram-desktop
     discord
     qjackctl
+
+    spotify-player
   ];
 
   home.activation.steam = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
