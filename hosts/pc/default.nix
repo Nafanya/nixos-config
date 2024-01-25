@@ -61,6 +61,9 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [ dmenu i3status i3lock i3blocks ];
+      extraSessionCommands = ''
+        xrandr --output DP-2 --mode 2560x1440 --rate 144.00
+      '';
     };
     layout = "us,ru";
     xkbOptions = "grp:caps_toggle";
