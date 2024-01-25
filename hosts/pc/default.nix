@@ -96,7 +96,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nikita = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "gamemode" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ firefox ];
     shell = pkgs.zsh;
   };
@@ -117,6 +117,18 @@
   programs.zsh.enable = true;
 
   environment.variables.EDITOR = "vim";
+
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = { renice = 10; };
+
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
+  };
 
   programs.steam = {
     enable = true;
