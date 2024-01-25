@@ -51,15 +51,20 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.autorun = false;
-  services.xserver.displayManager.startx.enable = true;
-  services.xserver.windowManager.i3 = {
+  services.xserver = {
     enable = true;
-    extraPackages = with pkgs; [ dmenu i3status i3lock i3blocks ];
+    #autorun = false;
+    displayManager = {
+      #startx.enable = true; # manual `startx`, X is run from user, not root
+      defaultSession = "none+i3";
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [ dmenu i3status i3lock i3blocks ];
+    };
+    layout = "us,ru";
+    xkbOptions = "grp:caps_toggle";
   };
-  services.xserver.layout = "us,ru";
-  services.xserver.xkbOptions = "grp:caps_toggle";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -129,7 +134,10 @@
     enable = true;
     wlr.enable = true;
     config = {
-      common = { default = [ "gtk" ]; };
+      common = {
+        default = [ "gtk" ];
+        "UseIn" = "i3";
+      };
       i3 = { default = [ "gtk" ]; };
       hyprland = { default = [ "hyprland" ]; };
     };
