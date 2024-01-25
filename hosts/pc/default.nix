@@ -105,7 +105,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ git vim wget htop ];
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    wget
+    htop
+    openrazer-daemon
+    polychromatic
+  ];
 
   programs.zsh.enable = true;
 
@@ -166,7 +173,10 @@
   programs.ssh.startAgent = true;
 
   services.hardware.openrgb = { enable = true; };
-  hardware.openrazer.enable = true;
+  hardware.openrazer = {
+    enable = true;
+    users = [ "nikita" ];
+  };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8080 ];
