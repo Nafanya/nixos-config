@@ -41,8 +41,6 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
-  ## hardware.video.hidpi.enable = lib.mkDefault true;
 
   hardware.opengl = {
     enable = true;
@@ -82,33 +80,5 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.beta;
-
-    ####prime = {
-    ####  offload.enable = true;
-    ####  intelBusId = "PCI:0:2:0";
-    ####  nvidiaBusId = "PCI:1:0:0";
-    ####};
   };
-
-  environment.systemPackages =
-    # Running `nvidia-offload vlc` would run VLC with dGPU
-    let
-      nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __VK_LAYER_NV_optimus=NVIDIA_only
-
-        exec "$@"
-      '';
-    in [ nvidia-offload ];
-
-  # Enables Nvidia drivers
-  ##nixpkgs.config.allowUnfreePredicate = pkg:
-  ##  builtins.elem (lib.getName pkg) [
-  ##    "nvidia-x11"
-  ##    "nvidia-settings"
-  ##    "nvidia-persistenced"
-  ##  ];
-
 }
