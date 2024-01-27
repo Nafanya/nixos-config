@@ -108,6 +108,7 @@
     htop
     openrazer-daemon
     polychromatic
+    xorg.xhost
   ];
 
   programs.zsh.enable = true;
@@ -116,6 +117,20 @@
 
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1"; # for smooth scrolling in firefox
+  };
+
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+
+      enableNvidia = true;
+    };
   };
 
   programs.gamemode = {
