@@ -174,4 +174,4 @@ bar {
         status_command i3status
 }
 
-include assignments.conf
+include $HOME/.config/i3/assignments.conf
