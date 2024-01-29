@@ -25,7 +25,7 @@
   #  "Xft.dpi" = 172;
   #};
 
-  imports = [ ./spotify ];
+  imports = [ ./spotify ./i3 ];
 
   # basic configuration of git, please change to your own
   programs.git = {
