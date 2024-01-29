@@ -65,6 +65,8 @@
     xkbOptions = "grp:caps_toggle";
   };
 
+  xdg.configFile = { "i3/config".source = ./i3/config; };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
