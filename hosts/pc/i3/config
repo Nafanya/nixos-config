@@ -41,7 +41,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # To show existing windows in addition, add 'window' to -combi-modes list
-bindcode $mod+40 exec rofi -show combi -modes combi -combi-modes "drun,run"
+bindcode $mod+40 exec "rofi -show combi -modes combi -combi-modes drun,run"
 
 # change focus
 bindsym $mod+j focus left
