@@ -74,6 +74,7 @@
     # with more details log output
     rnix-lsp # for emacs
     nixfmt
+    home-manager
 
     # system tools
     sysstat
