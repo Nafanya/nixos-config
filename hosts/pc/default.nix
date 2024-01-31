@@ -202,6 +202,7 @@
   services.hardware.openrgb = { enable = true; };
   hardware.openrazer = {
     enable = true;
+    mouseBatteryNotifier = false;
     users = [ "nikita" ];
   };
 
