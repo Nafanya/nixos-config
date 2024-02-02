@@ -27,6 +27,13 @@
 
   imports = [ ./spotify ./i3 ];
 
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -97,6 +104,7 @@
     qjackctl
 
     spotify-player
+    spotify
   ];
 
   # kitty -- a cross-platform, GPU-accelerated terminal emulator
