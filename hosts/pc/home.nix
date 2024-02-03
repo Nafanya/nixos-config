@@ -105,7 +105,10 @@
 
     spotify-player
     spotify
+    obs-studio
   ];
+
+  services.easyeffects.enable = true;
 
   # kitty -- a cross-platform, GPU-accelerated terminal emulator
   programs.kitty = {
