@@ -61,8 +61,10 @@
         xrandr --output DP-2 --mode 2560x1440 --rate 144.00
       '';
     };
-    layout = "us,ru";
-    xkbOptions = "grp:caps_toggle";
+    xkb = {
+      options = "grp:caps_toggle";
+      layout = "us,ru";
+    };
   };
 
   # Enable CUPS to print documents.
