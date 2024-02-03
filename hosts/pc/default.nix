@@ -152,6 +152,7 @@
   };
 
   programs.droidcam.enable = true;
+  programs.dconf.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
