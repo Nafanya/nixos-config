@@ -111,6 +111,8 @@
     openrazer-daemon
     polychromatic
     xorg.xhost
+    (mplayer.override { v4lSupport = true; })
+    ffmpeg
   ];
 
   programs.zsh.enable = true;
@@ -169,6 +171,8 @@
     };
   };
 
+  services.usbmuxd.enable = true;
+
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
@@ -211,7 +215,7 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8080 ];
-  # networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ 8554 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
