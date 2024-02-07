@@ -112,7 +112,11 @@
     polychromatic
     xorg.xhost
     (mplayer.override { v4lSupport = true; })
-    ffmpeg
+    (ffmpeg.override {
+      withUnfree = true;
+      withNvenc = true;
+      withNvdec = true;
+    })
   ];
 
   programs.zsh.enable = true;
