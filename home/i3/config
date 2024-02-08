@@ -174,6 +174,19 @@ bar {
         status_command i3status
 }
 
+### RULES ###
+# cheat sheet:
+# $xprop | grep WM_CLASS
+# gives 'instance' and 'class'
 
-include $HOME/.config/i3/assignments.conf
+### Steam
+assign [class="^steam$" ] → $ws5
+
+### im
+assign [class="^discord$"] → $ws10
+assign [class="^TelegramDesktop$"] → $ws10
+
+### misc
+for_window [class="^Pavucontrol$"] floating enable
+
 

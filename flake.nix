@@ -20,7 +20,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nikita = import ./hosts/pc/home.nix;
+            home-manager.users.nikita = import ./home;
           }
         ];
       };
