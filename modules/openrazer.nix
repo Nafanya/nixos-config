@@ -5,4 +5,5 @@
     users = [ "nikita" ];
   };
 
+  environment.systemPackages = with pkgs; [ openrazer-daemon polychromatic ];
 }

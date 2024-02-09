@@ -55,8 +55,6 @@
     wget
     htop
     #TODO: move to home
-    #openrazer-daemon
-    #polychromatic
     #xorg.xhost
     #(mplayer.override { v4lSupport = true; })
     #(ffmpeg.override {
