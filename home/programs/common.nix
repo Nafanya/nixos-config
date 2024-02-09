@@ -42,5 +42,7 @@
     spotify-player
     spotify
     obs-studio
+
+    ffmpeg
   ];
 }
