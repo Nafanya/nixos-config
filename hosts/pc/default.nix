@@ -12,6 +12,7 @@
     ./modules/i3.nix
 
     ./modules/virtualisation.nix
+    ./modules/homebridge.nix
 
     ./modules/steam.nix
     ./modules/openrgb.nix
