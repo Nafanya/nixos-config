@@ -75,6 +75,13 @@
 
   hardware.i2c = { enable = true; }; # TODO: do I need it?
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    nssmdns6 = false;
+    openFirewall = true;
+  };
+
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
