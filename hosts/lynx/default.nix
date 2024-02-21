@@ -78,6 +78,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
