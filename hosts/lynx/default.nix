@@ -36,9 +36,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -69,7 +66,7 @@
   users.users.nikita = {
     isNormalUser = true;
     description = "Nikita Iashchenko";
-    extraGroups = [ "networkmanager" "wheel" "i2c" ];
+    extraGroups = [ "wheel" "i2c" ];
     packages = with pkgs; [ zsh ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG/p7bL2u2cNo+8eGd/Wd5XVw61066si+e7GKmXOYPU nikita.yaschenko@gmail.com"
@@ -114,30 +111,30 @@
     lidSwitchDocked = "ignore";
   };
 
-  services.dnsmasq.enable = true;
-  services.dnsmasq.extraConfig = ''
-    domain-needed
-    bogus-priv
-    no-resolv
+  ##services.dnsmasq.enable = true;
+  ##services.dnsmasq.extraConfig = ''
+  ##  domain-needed
+  ##  bogus-priv
+  ##  no-resolv
 
-    server=192.168.1.1
-    #server=8.8.4.4
-    #server=1.1.1.1
+  ##  server=192.168.1.1
+  ##  #server=8.8.4.4
+  ##  #server=1.1.1.1
 
-    listen-address=::1
-    listen-address=127.0.0.1
-    listen-address=192.168.1.250
-    listen-address=192.168.1.251
+  ##  listen-address=::1
+  ##  listen-address=127.0.0.1
+  ##  listen-address=192.168.1.250
+  ##  listen-address=192.168.1.251
 
-    log-queries
-    log-facility=/etc/nixos/.persist/dnsmasq/ad-block.log
-    cache-size=10000
-    local-ttl=300
+  ##  log-queries
+  ##  log-facility=/etc/nixos/.persist/dnsmasq/ad-block.log
+  ##  cache-size=10000
+  ##  local-ttl=300
 
-    conf-file=/etc/nixos/.persist/dnsmasq/dnsmasq.blacklist.txt
-    #conf-file=/etc/nixos/.persist/dnsmasq/domains.txt
-    #addn-hosts=/etc/nixos/.persist/dnsmasq/hostnames.txt
-  '';
+  ##  conf-file=/etc/nixos/.persist/dnsmasq/dnsmasq.blacklist.txt
+  ##  #conf-file=/etc/nixos/.persist/dnsmasq/domains.txt
+  ##  #addn-hosts=/etc/nixos/.persist/dnsmasq/hostnames.txt
+  ##'';
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
