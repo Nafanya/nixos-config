@@ -29,5 +29,21 @@
         modules = [ ./hosts/lynx ];
       };
     };
+    colmena = {
+      meta = {
+        nixpkgs = import nixpkgs {
+          system = "x86_64-linux";
+
+          specialArgs = { inherit nixpkgs; };
+        };
+      };
+
+      lynx = { name, nodes, ... }: {
+        deployment.targetHost = "192.168.1.250";
+        deployment.targetUser = "root";
+
+        imports = [ ./hosts/lynx ];
+      };
+    };
   };
 }
