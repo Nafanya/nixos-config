@@ -12,6 +12,8 @@
     ./vim.nix
 
     ./steam.nix
+
+    ../../modules/avahi
   ];
 
   # DDC to control monitor via ddcutil
