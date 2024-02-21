@@ -79,6 +79,19 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+
+    # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
+    auto-optimise-store = true;
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
