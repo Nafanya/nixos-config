@@ -16,6 +16,7 @@
     ../../modules/avahi
     ./nginx.nix
     ./hass.nix
+    ./jellyfin.nix
   ];
 
   # DDC to control monitor via ddcutil
@@ -161,12 +162,6 @@
   services.openssh.enable = true;
 
   services.blueman.enable = true;
-
-  # Home theater
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-  };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 53 ];
