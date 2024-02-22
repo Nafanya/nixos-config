@@ -13,13 +13,18 @@
         "= /" = { return = "302 http://$host/web/"; };
         "/" = {
           proxyPass = "http://127.0.0.1:8096";
+          recommendedProxySettings = true;
           extraConfig = ''
             proxy_buffering off;
           '';
         };
-        "= /web/" = { proxyPass = "http://127.0.0.1:8096/web/index.html"; };
+        "= /web/" = {
+          proxyPass = "http://127.0.0.1:8096/web/index.html";
+          recommendedProxySettings = true;
+        };
         "/socket" = {
           proxyPass = "http://127.0.0.1:8096";
+          recommendedProxySettings = true;
           proxyWebsockets = true;
         };
       };
