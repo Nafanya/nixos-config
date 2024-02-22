@@ -14,6 +14,8 @@
     ./steam.nix
 
     ../../modules/avahi
+    ./nginx.nix
+    ./hass.nix
   ];
 
   # DDC to control monitor via ddcutil
@@ -166,28 +168,8 @@
     openFirewall = true;
   };
 
-  services.home-assistant = {
-    enable = true;
-    openFirewall = true;
-    extraComponents = [
-      # Components required to complete the onboarding
-      "met"
-      "radio_browser"
-    ];
-    extraPackages = python3Packages: with python3Packages; [ securetar ];
-    config = {
-      # Includes dependencies for a basic setup
-      # https://www.home-assistant.io/integrations/default_config/
-      default_config = { };
-    };
-  };
-
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22
-    53
-    8123 # jellyfin
-  ];
+  networking.firewall.allowedTCPPorts = [ 22 53 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

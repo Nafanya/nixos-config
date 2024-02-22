@@ -15,46 +15,41 @@
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
+    virtualHosts = let
+      base = locations: { inherit locations; };
+      proxy = port:
+        base {
+          "/" = {
+            proxyPass = "http://[::1]:" + toString (port) + "/";
+            proxyWebsockets = true;
+            extraConfig = ''
+              proxy_buffering off;
+              proxy_cache_bypass 1;
+              proxy_no_cache 1;
+            '';
+          };
+        };
+    in { "jellyfin.local" = proxy 8096; };
 
-    logError = "stderr debug";
-
-    #virtualHosts = let
-    #  base = locations: { inherit locations; };
-    #  proxy = port:
-    #    base {
-    #      "/".proxyPass = "http://127.0.0.1:" + toString (port) + "/";
-    #      "/".extraConfig = ''
-    #        proxy_cache_bypass 1;
-    #        proxy_no_cache 1;
-    #        port_in_redirect on;
-    #      '';
-    #    };
-    #in {
-    #  "hass.local" = proxy 8123;
-    #  "jellyfin.local" = proxy 8096;
+    #virtualHosts."hass.local" = {
+    #  locations."/" = {
+    #    proxyPass = "http://hass.local:8123";
+    #    extraConfig = ''
+    #      proxy_cache_bypass 1;
+    #      proxy_no_cache 1;
+    #      port_in_redirect on;
+    #    '';
+    #  };
     #};
-
-    virtualHosts."hass.local" = {
-      locations."/" = {
-        proxyPass = "http://hass.local:8123";
-        extraConfig = ''
-          proxy_cache_bypass 1;
-          proxy_no_cache 1;
-          port_in_redirect on;
-        '';
-      };
-    };
-    virtualHosts."jellyfin.local" = {
-      locations."/" = {
-        proxyPass = "http://jellyfin.local:8096";
-        extraConfig = ''
-          proxy_cache_bypass 1;
-          proxy_no_cache 1;
-          port_in_redirect on;
-        '';
-      };
-    };
+    #virtualHosts."jellyfin.local" = {
+    #  locations."/" = {
+    #    proxyPass = "http://jellyfin.local:8096";
+    #    extraConfig = ''
+    #      proxy_cache_bypass 1;
+    #      proxy_no_cache 1;
+    #      port_in_redirect on;
+    #    '';
+    #  };
+    #};
   };
 }
