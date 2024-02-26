@@ -17,38 +17,13 @@
         "force user" = "nikita";
         "fruit:encoding" = "native";
       };
-
-      #time-machine = {
-      #  comment = "Zeitmaschine - Time Capsule for MacOS";
-      #  path = "/home/nikita/backups/time-machine";
-      #  "guest ok" = false;
-      #  "read only" = "no";
-      #  browseable = "yes";
-      #  #"force group" = "users";
-      #  #"force user" = "nikita";
-      #  "valid users" = "nikita,natali";
-      #  "write list" = "nikita,natali";
-      #  "vfs objects" = "catia fruit streams_xattr";
-      #  "fruit:time machine" = "yes";
-      #};
-      #time-machine-natali = {
-      #  comment = "Zeitmaschine - Time Capsule for MacOS";
-      #  path = "/home/nikita/backups/time-machine-natali";
-      #  "guest ok" = false;
-      #  "read only" = "no";
-      #  browseable = "yes";
-      #  #"force group" = "users";
-      #  #"force user" = "nikita";
-      #  "valid users" = "natali";
-      #  "write list" = "natali";
-      #  "vfs objects" = "catia fruit streams_xattr";
-      #  "fruit:time machine" = "yes";
-      #};
     };
   };
 
+  ## TODO: bonus -- add TimeCapsule icon
+  ## Couldn't make it work today, not sure new Mac support it
   #services.avahi.extraServiceFiles = {
-  #  mysmb = ''
+  #  smb = ''
   #    <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
   #    <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
   #    <service-group>
@@ -60,26 +35,16 @@
   #      <service>
   #        <type>_device-info._tcp</type>
   #        <port>9</port>
-  #        <txt-record>model=TimeCapsule8,119</txt-record>
+  #        <txt-record>model=MacBookPro16,4</txt-record>
   #      </service>
   #      <service>
   #        <type>_adisk._tcp</type>
   #        <port>9</port>
-  #        <txt-record>dk0=adVN=Zeitmaschine,adVF=0x82</txt-record>
+  #        <txt-record>dk0=adVN=time-machine,adVF=0x82</txt-record>
   #        <txt-record>sys=adVF=0x100</txt-record>
   #      </service>
   #    </service-group>
   #  '';
   #};
-
-  networking.firewall.allowedTCPPorts = [
-    139
-    445 # smbd
-  ];
-
-  networking.firewall.allowedUDPPorts = [
-    137
-    138 # nmbd
-  ];
 
 }
