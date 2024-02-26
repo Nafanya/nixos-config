@@ -18,6 +18,8 @@
     ./modules/openrgb.nix
     ./modules/openrazer.nix
     ./modules/gamemode.nix
+
+    ./netatalk.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -78,7 +80,11 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-    nssmdns6 = false;
+    nssmdns6 = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
     openFirewall = true;
   };
 
