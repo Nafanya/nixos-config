@@ -7,6 +7,11 @@
     shell = pkgs.zsh; # TODO: remove from here and configure in hm?
   };
 
+  users.users.natali = {
+    isNormalUser = true;
+    description = "natali";
+  };
+
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
 

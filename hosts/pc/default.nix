@@ -19,7 +19,8 @@
     ./modules/openrazer.nix
     ./modules/gamemode.nix
 
-    ./netatalk.nix
+    #./netatalk.nix
+    ./samba.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
