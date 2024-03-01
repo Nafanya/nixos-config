@@ -4,6 +4,9 @@
     isNormalUser = true;
     description = "nikitos";
     extraGroups = [ "wheel" "gamemode" ]; # TODO: cleanup gamemode?
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJnSWkY3hvd27BbsNGDRkeL2/XDY1d96Szsz79P0lXCH nikita.yaschenko@gmail.com"
+    ];
     shell = pkgs.zsh; # TODO: remove from here and configure in hm?
   };
 
