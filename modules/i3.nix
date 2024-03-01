@@ -21,4 +21,6 @@
       layout = "us,ru";
     };
   };
+
+  environment.systemPackages = [ pkgs.mpv pkgs.xscreensaver ];
 }
