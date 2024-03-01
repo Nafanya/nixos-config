@@ -3,13 +3,23 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = inputs@{
+    self,
+    nixpkgs,
+    nix-darwin,
+    home-manager,
+    ...
+  }: {
     nixosConfigurations = {
       pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,11 +39,18 @@
         modules = [ ./hosts/lynx ];
       };
     };
+    darwinConfigurations = {
+      leopard = nix-darwin.lib.darwinSystem {
+	system = "x86_64-darwin";
+        modules = [ ./hosts/leopard ];
+        specialArgs = { inherit inputs; };
+      };
+    };
+    #darwinPackages = self.darwinConfigurations.leopard.pkgs;
     colmena = {
       meta = {
         nixpkgs = import nixpkgs {
           system = "x86_64-linux";
-
           specialArgs = { inherit nixpkgs; };
         };
       };
