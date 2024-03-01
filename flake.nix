@@ -13,13 +13,7 @@
     };
   };
 
-  outputs = inputs@{
-    self,
-    nixpkgs,
-    nix-darwin,
-    home-manager,
-    ...
-  }: {
+  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }: {
     nixosConfigurations = {
       pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -41,7 +35,7 @@
     };
     darwinConfigurations = {
       leopard = nix-darwin.lib.darwinSystem {
-	system = "x86_64-darwin";
+        system = "x86_64-darwin";
         modules = [ ./hosts/leopard ];
         specialArgs = { inherit inputs; };
       };
