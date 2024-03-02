@@ -53,7 +53,7 @@
       };
 
       lynx = { name, nodes, ... }: {
-        deployment.targetHost = "192.168.1.250";
+        deployment.targetHost = "lynx.local";
         deployment.targetUser = "root";
 
         imports = [ ./hosts/lynx ];

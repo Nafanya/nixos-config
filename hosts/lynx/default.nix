@@ -17,6 +17,7 @@
     ./nginx.nix
     ./hass.nix
     ./jellyfin.nix
+    ./vaultwarden.nix
   ];
 
   # DDC to control monitor via ddcutil
