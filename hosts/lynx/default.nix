@@ -17,6 +17,7 @@
     ./nginx.nix
     ./hass.nix
     ./jellyfin.nix
+    ./vaultwarden.nix
   ];
 
   # DDC to control monitor via ddcutil
@@ -160,6 +161,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  programs.ssh.startAgent = true;
 
   services.blueman.enable = true;
 
