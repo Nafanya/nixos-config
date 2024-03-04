@@ -35,6 +35,10 @@
         system = "x86_64-linux";
         modules = [ ./hosts/lynx ];
       };
+      nihonzaru = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./hosts/nihonzaru ];
+      };
     };
     darwinConfigurations = {
       leopard = nix-darwin.lib.darwinSystem {
@@ -57,6 +61,13 @@
         deployment.targetUser = "root";
 
         imports = [ ./hosts/lynx ];
+      };
+
+      nihonzaru = { name, nodes, ... }: {
+        deployment.targetHost = "167.235.29.144";
+        deployment.targetUser = "root";
+
+        imports = [ ./hosts/nihonzaru ];
       };
     };
   };
