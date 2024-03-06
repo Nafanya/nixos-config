@@ -4,10 +4,15 @@
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
 
+    ./modules/nginx
+    ./modules/acme.nix
+    ./modules/vaultwarden.nix
     ./modules/vim.nix
   ];
 
   sops.defaultSopsFile = ./secrets.yaml;
+
+  programs.git.enable = true;
 
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
