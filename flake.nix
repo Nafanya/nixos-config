@@ -10,13 +10,15 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, sops-nix, nix-darwin, home-manager, ... }: {
     nixosConfigurations = {
       pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,11 +31,20 @@
             home-manager.useUserPackages = true;
             home-manager.users.nikita = import ./home;
           }
+
+          sops-nix.nixosModules.sops
         ];
+        specialArgs = { inherit inputs; };
       };
       lynx = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/lynx ];
+        modules = [ ./hosts/lynx sops-nix.nixosModules.sops ];
+        specialArgs = { inherit inputs; };
+      };
+      nihonzaru = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./hosts/nihonzaru sops-nix.nixosModules.sops ];
+        specialArgs = { inherit inputs; };
       };
     };
     darwinConfigurations = {
@@ -56,7 +67,14 @@
         deployment.targetHost = "lynx.local";
         deployment.targetUser = "root";
 
-        imports = [ ./hosts/lynx ];
+        imports = [ ./hosts/lynx sops-nix.nixosModules.sops ];
+      };
+
+      nihonzaru = { name, nodes, ... }: {
+        deployment.targetHost = "167.235.29.144";
+        deployment.targetUser = "root";
+
+        imports = [ ./hosts/nihonzaru sops-nix.nixosModules.sops ];
       };
     };
   };
