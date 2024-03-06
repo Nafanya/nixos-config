@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, inputs, pkgs, ... }: {
 
   imports = [
     ./hardware-configuration.nix
@@ -6,6 +6,8 @@
 
     ./modules/vim.nix
   ];
+
+  sops.defaultSopsFile = ./secrets.yaml;
 
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
