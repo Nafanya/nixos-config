@@ -6,15 +6,20 @@
     add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload' always;
   '';
 
-  sops.secrets.hetzner-api-credentials.owner = "nginx";
+  # File format:
+  #
+  sops.secrets.hetzner-api-credentials = { owner = "nginx"; };
 
   security.acme.certs = {
-    "nikitoci.com" = {
-      domain = "nikitoci.com";
+    "bitwarden.nikitoci.com" = {
+      domain = "bitwarden.nikitoci.com";
       postRun = "systemctl reload nginx.service";
       group = "nginx";
       dnsProvider = "hetzner";
-      credentialsFile = config.sops.secrets.hetzner-api-credentials.path;
+      environmentFile = config.sops.secrets.hetzner-api-credentials.path;
     };
   };
+
+  services.nginx.enable = true;
+  services.nginx = { recommendedTlsSettings = true; };
 }

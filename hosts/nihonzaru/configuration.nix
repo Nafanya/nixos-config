@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
 
-    ./modules/nginx/default.nix
+    ./modules/nginx
     ./modules/acme.nix
     ./modules/vaultwarden.nix
     ./modules/vim.nix

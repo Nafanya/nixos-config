@@ -10,16 +10,16 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8000 8001 ];
+  #networking.firewall.allowedTCPPorts = [ 8000 8001 ];
 
   services.nginx = {
+
     virtualHosts."bitwarden.nikitoci.com" = {
-      useACMEHost = "nikitoci.com";
+      useACMEHost = "bitwarden.nikitoci.com";
       extraConfig = ''
         client_max_body_size 128M;
       '';
       onlySSL = true;
-      enableACME = true;
       locations."/" = {
         recommendedProxySettings = true;
         proxyPass = "http://localhost:8000";
