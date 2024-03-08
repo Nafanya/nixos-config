@@ -71,6 +71,7 @@
     #  withNvenc = true;
     #  withNvdec = true;
     #})
+    davinci-resolve
   ];
 
   security.rtkit.enable = true;
