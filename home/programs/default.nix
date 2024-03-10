@@ -19,6 +19,8 @@
     plugins = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
   };
 
+  services.emacs.enable = true;
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29;
