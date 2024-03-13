@@ -18,6 +18,7 @@
     ./modules/openrgb.nix
     ./modules/openrazer.nix
     ./modules/gamemode.nix
+    ./modules/mtp.nix
 
     #./netatalk.nix
     ./samba.nix
