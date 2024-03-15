@@ -51,6 +51,8 @@
 
   services.usbmuxd.enable = true;
 
+  services.logind = { powerKey = "suspend"; };
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
