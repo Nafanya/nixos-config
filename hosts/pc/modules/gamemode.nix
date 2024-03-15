@@ -12,4 +12,6 @@
     };
   };
 
+  users.users.nikita.extraGroups = [ "gamemode" ];
+
 }
