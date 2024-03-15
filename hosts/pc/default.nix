@@ -20,7 +20,7 @@
     ./modules/gamemode.nix
     ./modules/mtp.nix
 
-    ./samba.nix
+    ./modules/samba.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
