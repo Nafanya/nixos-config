@@ -20,7 +20,6 @@
     ./modules/gamemode.nix
     ./modules/mtp.nix
 
-    #./netatalk.nix
     ./samba.nix
   ];
 
