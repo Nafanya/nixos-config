@@ -21,6 +21,8 @@
     ./modules/mtp.nix
 
     ./modules/samba.nix
+
+    ./modules/avahi
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -72,17 +74,6 @@
   networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    nssmdns6 = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-    openFirewall = true;
-  };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
