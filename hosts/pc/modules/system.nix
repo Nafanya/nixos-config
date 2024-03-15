@@ -1,5 +1,14 @@
 { config, pkgs, lib, ... }: {
 
+  # Use the systemd-boot EFI boot loader.
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+    };
+    efi.canTouchEfiVariables = true;
+  };
+
   users.users.nikita = {
     isNormalUser = true;
     description = "nikitos";
@@ -57,6 +66,8 @@
     enable = true;
     openFirewall = true;
   };
+
+  programs.ssh.startAgent = true;
 
   environment.systemPackages = with pkgs; [
     git
