@@ -4,7 +4,7 @@
   home.username = "nikita";
   home.homeDirectory = "/home/nikita";
 
-  imports = [ ./spotify ./i3 ];
+  imports = [ ./i3 ];
 
   systemd.user.targets.tray = {
     Unit = {
