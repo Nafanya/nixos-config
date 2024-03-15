@@ -34,10 +34,6 @@
 
   networking.hostName = "pc";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   programs.zsh.enable = true;
 
   environment.variables.EDITOR = "vim";
@@ -72,13 +68,10 @@
   programs.ssh.startAgent = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts =
-    [ 8080 ]; # TODO: move to programs requiring these
-  networking.firewall.allowedUDPPorts = [ 8554 ];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  hardware.i2c = { enable = true; }; # TODO: do I need it?
 
   services.avahi = {
     enable = true;
