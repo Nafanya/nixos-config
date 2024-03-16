@@ -78,4 +78,9 @@
       };
     };
   };
+
+  home.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1"; # for smooth scrolling in firefox
+  };
+
 }

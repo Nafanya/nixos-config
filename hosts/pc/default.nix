@@ -29,10 +29,6 @@
 
   programs.zsh.enable = true;
 
-  environment.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1"; # for smooth scrolling in firefox
-  };
-
   programs.droidcam.enable = true;
 
   services.usbmuxd.enable = true;
