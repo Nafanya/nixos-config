@@ -8,7 +8,7 @@
     fzf
     iotop
     neofetch
-    nvtop
+    nvtopPackages.full
     ripgrep
     tree
     unzip
