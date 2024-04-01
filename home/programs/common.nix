@@ -16,7 +16,6 @@
     zip
 
     # nix
-    rnix-lsp # for emacs #TODO: move it to emacs deps
     nixfmt
     home-manager
 
