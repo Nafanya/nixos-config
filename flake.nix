@@ -50,7 +50,7 @@
     darwinConfigurations = {
       leopard = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        modules = [ ./hosts/leopard ];
+        modules = [ ./hosts/darwin ./hosts/darwin/leopard ];
         specialArgs = { inherit inputs; };
       };
     };
