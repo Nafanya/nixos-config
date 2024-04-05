@@ -16,16 +16,7 @@
     ./nginx.nix
     ./hass.nix
     ./jellyfin.nix
-    #./vaultwarden.nix
   ];
-
-  # DDC to control monitor via ddcutil
-  hardware.i2c.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -86,7 +77,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+  #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -112,7 +103,6 @@
     git
     dnsmasq
     bat
-    ddcutil
     vlc
   ];
 
@@ -163,11 +153,9 @@
 
   programs.ssh.startAgent = true;
 
-  services.blueman.enable = true;
-
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 53 ];
-  networking.firewall.allowedUDPPorts = [ 53 ];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

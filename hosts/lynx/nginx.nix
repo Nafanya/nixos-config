@@ -6,9 +6,6 @@
 
     # Enables proxy settings globally
     #recommendedProxySettings = true;
-
-    # TODO: remove when everything works
-    logError = "stderr debug";
   };
 
   security.acme = {

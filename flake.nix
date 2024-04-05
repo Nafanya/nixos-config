@@ -60,10 +60,10 @@
 
       deploy.nodes = {
         lynx = {
-          hostname = "lynx";
+          hostname = "192.168.1.250";
           profiles.system = {
             user = "root";
-            sshUser = "nikita";
+            sshUser = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos
               self.nixosConfigurations.lynx;
           };
