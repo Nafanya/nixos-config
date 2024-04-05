@@ -13,7 +13,6 @@
 
     ./steam.nix
 
-    ../../modules/avahi
     ./nginx.nix
     ./hass.nix
     ./jellyfin.nix
