@@ -3,25 +3,25 @@
   # This is "common" stuff for all darwin hosts
 
   # Common hm stuff goes here
-  inputs.home-manager.darwinModules.home-manager = {
-    useGlobalPkgs = true;
-    useUserPkgs = true;
+  #inputs.home-manager.darwinModules.home-manager = {
+  #  useGlobalPkgs = true;
+  #  useUserPkgs = true;
 
-    extraSpecialArgs = { inherit inputs; };
+  #  extraSpecialArgs = { inherit inputs; };
 
-    users.nikita = { config, pkgs, ... }: {
-      home.homeDirectory = lib.mkForce "/Users/nikita";
+  #  users.nikita = { config, pkgs, ... }: {
+  #    home.homeDirectory = lib.mkForce "/Users/nikita";
 
-      imports = [
-        ../../../home/kitty
-        ../../../home/tmux
-        ../../../home/emacs
-        # >>> Put new stuff here <<<
-      ];
-    };
+  #    imports = [
+  #      ../../../home/kitty
+  #      ../../../home/tmux
+  #      ../../../home/emacs
+  #      # >>> Put new stuff here <<<
+  #    ];
+  #  };
 
-    backupFileExtension = "bak";
-  };
+  #  backupFileExtension = "bak";
+  #};
 
   programs.zsh.enable = true;
 
@@ -33,14 +33,14 @@
   };
 
   nix = {
-    package = pkgs.nixUnstable;
+#    package = pkgs.nixUnstable;
     settings = {
       experimental-features = "nix-command flakes";
       max-jobs = "auto";
     };
   };
 
-  services.nix-daemon.enable = lib.mkForce true;
+  services.nix-daemon.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

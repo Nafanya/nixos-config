@@ -3,11 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
@@ -52,7 +51,7 @@
         system = "x86_64-darwin";
         modules = [
           ./hosts/darwin
-          #./hosts/darwin/leopard
+          ./hosts/darwin/leopard
         ];
         specialArgs = { inherit inputs; };
       };
