@@ -50,6 +50,12 @@
       leopard = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nikita = import ./home/home-darwin.nix;
+          }
           ./hosts/darwin
           ./hosts/darwin/leopard
         ];

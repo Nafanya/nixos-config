@@ -1,10 +1,10 @@
-{ config, pkgs, ... }: {
-
-  imports = [ ./programs ./i3 ];
+{ config, lib, pkgs, ... }:
+{
 
   home.stateVersion = "23.11";
   home.username = lib.mkDefault "nikita";
-  home.homeDirectory = lib.mkDefault "/home/nikita";
+  home.homeDirectory = lib.mkDefault "/Users/nikita";
 
   programs.home-manager.enable = true;
 }
+
