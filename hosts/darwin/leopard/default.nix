@@ -1,5 +1,7 @@
 { inputs, pkgs, lib, ... }: {
 
+  nixpkgs.hostPlatform = lib.mkForce "x86_64-darwin";
+
   homebrew = {
     enable = true;
     onActivation = {
@@ -31,10 +33,4 @@
     spotify
     slack
   ];
-
-  services.nix-daemon.enable = lib.mkForce true;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 4;
 }

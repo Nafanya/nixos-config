@@ -13,7 +13,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -50,7 +50,10 @@
     darwinConfigurations = {
       leopard = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        modules = [ ./hosts/darwin ./hosts/darwin/leopard ];
+        modules = [
+          ./hosts/darwin
+          #./hosts/darwin/leopard
+        ];
         specialArgs = { inherit inputs; };
       };
     };

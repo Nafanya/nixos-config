@@ -1,21 +1,10 @@
-{ inputs, pkgs, lib, ... }: {
+{ inputs, pkgs, lib, home-manager, ... }: {
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
+  # This is "common" stuff for all darwin hosts
 
-  imports = [ <home-manager/nix-darwin> ];
-
-  home-manager = {
-    # Disable using the system configuration’s pkgs argument
-    # in hm. This disables the Home Manager options nixpkgs.*.
-    useGlobalPkgs = false;
-
-    # Allows installing pkgs from
-    # users.users.<name>.packages = [ ... ];
+  # Common hm stuff goes here
+  inputs.home-manager.darwinModules.home-manager = {
+    useGlobalPkgs = true;
     useUserPkgs = true;
 
     extraSpecialArgs = { inherit inputs; };
@@ -34,6 +23,15 @@
     backupFileExtension = "bak";
   };
 
+  programs.zsh.enable = true;
+
+  # nix-darwin settings below
+
+  nixpkgs = {
+    hostPlatform = lib.mkDefault "x86_64-darwin";
+    config = { allowUnfree = true; };
+  };
+
   nix = {
     package = pkgs.nixUnstable;
     settings = {
@@ -42,5 +40,9 @@
     };
   };
 
-  programs.zsh.enable = true;
+  services.nix-daemon.enable = lib.mkForce true;
+
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 4;
 }
