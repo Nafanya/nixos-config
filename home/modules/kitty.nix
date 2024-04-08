@@ -1,7 +1,6 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Nord";
     shellIntegration = { enableZshIntegration = true; };
     settings = {
       font_family = "monospace";
