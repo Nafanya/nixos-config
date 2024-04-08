@@ -14,6 +14,8 @@
     casks = [ "telegram" ];
   };
 
+  networking.hostName = "leopard";
+
   environment.systemPackages = with pkgs; [
     (python311.withPackages (ps: with ps; [ pip requests setuptools ]))
     git-lfs
