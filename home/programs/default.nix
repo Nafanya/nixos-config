@@ -31,15 +31,4 @@
   services.easyeffects.enable = true;
 
   services.dunst = { enable = true; };
-
-  programs.zsh = {
-    enable = true;
-    history = { size = 100000; };
-    shellAliases = { update = "sudo nixos-rebuild switch"; };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "agnoster";
-    };
-  };
 }
