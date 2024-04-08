@@ -51,6 +51,10 @@
       italic_font = "auto";
       bold_italic_font = "auto";
       font_size = "14.0";
+
+      repaint_delay = "8";
+      input_delay = "0";
+      sync_to_monitor = "no";
     };
   };
 
