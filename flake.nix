@@ -17,6 +17,8 @@
     };
 
     deploy-rs.url = "github:serokell/deploy-rs";
+
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
   outputs = inputs@{ self, nixpkgs, sops-nix, nix-darwin, home-manager
@@ -56,6 +58,7 @@
           modules = [
             home-manager.darwinModules.home-manager
             {
+              nixpkgs.overlays = [ inputs.nixpkgs-firefox-darwin.overlay ];
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bak";

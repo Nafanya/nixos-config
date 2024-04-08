@@ -1,6 +1,8 @@
 { pkgs, lib, config, ... }: {
   programs.firefox = {
     enable = true;
+    #TODO: fix this and other conditional for linux/darwin
+    package = if pkgs.stdenv.isLinux then pkgs.firefox else pkgs.firefox-bin;
     profiles.nikita = {
       #TODO: add extensions
       containers = {
