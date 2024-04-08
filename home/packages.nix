@@ -8,7 +8,6 @@ let
     file
     fzf
     neofetch
-    nvtopPackages.full
     ripgrep
     tree
     unzip
@@ -24,6 +23,9 @@ let
     spotify
   ];
   linuxOnlyPackages = with pkgs; [
+    #utils
+    nvtopPackages.full
+
     # system tools
     ethtool
     iotop
