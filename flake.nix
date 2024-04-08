@@ -3,17 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,7 +53,16 @@
       darwinConfigurations = {
         leopard = nix-darwin.lib.darwinSystem {
           system = "x86_64-darwin";
-          modules = [ ./hosts/leopard ];
+          modules = [
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.nikita = import ./home/home-darwin.nix;
+            }
+            ./hosts/darwin
+            ./hosts/darwin/leopard
+          ];
           specialArgs = { inherit inputs; };
         };
       };
