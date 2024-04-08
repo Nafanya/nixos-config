@@ -1,13 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [ ./browsers.nix ./common.nix ];
 
-  services.emacs.enable = true;
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs29;
-  };
-
   gtk = {
     enable = true;
     theme = {

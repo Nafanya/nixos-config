@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
 
   imports = [
+    ./modules/emacs.nix
     ./modules/git.nix
     ./modules/kitty.nix
     ./modules/neovim.nix
