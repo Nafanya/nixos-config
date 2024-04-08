@@ -5,7 +5,10 @@ let
 in {
 
   imports = [
+    ./modules/dunst.nix
+    ./modules/easyeffects.nix
     ./modules/emacs.nix
+    ./modules/firefox.nix
     ./modules/git.nix
     ./modules/gtk.nix
     ./modules/kitty.nix

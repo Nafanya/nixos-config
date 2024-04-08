@@ -1,7 +1,8 @@
-{ pkgs, config, ... }: {
+{ pkgs, lib, config, ... }: {
   programs.firefox = {
     enable = true;
     profiles.nikita = {
+      #TODO: add extensions
       containers = {
         personal = {
           id = 0;
@@ -79,8 +80,9 @@
     };
   };
 
-  home.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1"; # for smooth scrolling in firefox
-  };
-
+  home.sessionVariables = lib.mkMerge [
+    (lib.mkIf pkgs.stdenv.isLinux {
+      MOZ_USE_XINPUT2 = "1"; # for smooth scrolling in firefox
+    })
+  ];
 }
