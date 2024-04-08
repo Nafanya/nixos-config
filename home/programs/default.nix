@@ -30,23 +30,6 @@
 
   services.easyeffects.enable = true;
 
-  # kitty -- a cross-platform, GPU-accelerated terminal emulator
-  programs.kitty = {
-    enable = true;
-    shellIntegration.enableZshIntegration = true;
-    settings = {
-      font_family = "monospace";
-      bold_font = "auto";
-      italic_font = "auto";
-      bold_italic_font = "auto";
-      font_size = "14.0";
-
-      repaint_delay = "8";
-      input_delay = "0";
-      sync_to_monitor = "no";
-    };
-  };
-
   services.dunst = { enable = true; };
 
   programs.zsh = {
