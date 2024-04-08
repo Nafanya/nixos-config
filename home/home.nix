@@ -1,4 +1,8 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+in {
 
   imports = [
     ./modules/emacs.nix
@@ -10,7 +14,8 @@
 
   home.stateVersion = "23.11";
   home.username = lib.mkDefault "nikita";
-  home.homeDirectory = lib.mkDefault "/home/nikita";
+  home.homeDirectory =
+    lib.mkDefault (if isLinux then "/home/nikita" else "/Users/nikita");
 
   programs.home-manager.enable = true;
 }

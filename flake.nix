@@ -32,7 +32,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bak";
-              home-manager.users.nikita = import ./home/home-linux.nix;
+              home-manager.users.nikita = import ./home/home.nix;
             }
 
             sops-nix.nixosModules.sops
@@ -59,7 +59,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bak";
-              home-manager.users.nikita = import ./home/home-darwin.nix;
+              home-manager.users.nikita = import ./home/home.nix;
             }
             ./hosts/darwin
             ./hosts/darwin/leopard
