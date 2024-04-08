@@ -6,7 +6,7 @@
       update = if pkgs.stdenv.hostPlatform.isLinux then
         "sudo nixos-rebuild switch"
       else
-        "nix-darwin switch --flake ~/nixos-config";
+        "darwin-rebuild switch --flake ~/nixos-config";
     };
     oh-my-zsh = {
       enable = true;
