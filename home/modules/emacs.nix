@@ -7,7 +7,7 @@ in {
   };
 
   services.emacs = {
-    enable = true;
+    enable = true && pkgs.stdenv.isLinux;
     package = emacsPackage;
     client.enable = true;
   };
