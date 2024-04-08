@@ -10,6 +10,8 @@ in {
     ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/zsh.nix
+
+    (import ./packages.nix { inherit isLinux isDarwin; })
   ];
 
   home.stateVersion = "23.11";
