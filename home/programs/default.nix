@@ -1,17 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [ ./browsers.nix ./common.nix ];
 
-  #TODO: move to submodules
-  programs.git = {
-    enable = true;
-    userName = "Nikita Iashchenko";
-    userEmail = "nikita.yaschenko@gmail.com";
-    diff-so-fancy = {
-      enable = true;
-      pagerOpts = [ "--tabs=4" "-R" ];
-    };
-  };
-
   programs.neovim = {
     defaultEditor = true;
     enable = true;
