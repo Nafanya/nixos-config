@@ -1,17 +1,18 @@
 { config, lib, pkgs, ... }:
 let
-  isLinux = pkgs.stdenv.hostPlatform.isLinux;
-  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
+  isDarwin = pkgs.stdenv.isDarwin;
 in {
 
   imports = [
     ./modules/emacs.nix
     ./modules/git.nix
+    ./modules/gtk.nix
     ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/zsh.nix
 
-    (import ./packages.nix { inherit isLinux isDarwin; })
+    ./packages.nix
   ];
 
   home.stateVersion = "23.11";

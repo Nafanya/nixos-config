@@ -1,4 +1,3 @@
-{ isLinux, isDarwin }:
 { pkgs, ... }:
 let
   commonPackages = with pkgs; [
@@ -48,9 +47,9 @@ let
     #misc
     obs-studio
   ];
-  darwinOnlyPackages = with pkgs; [];
+  darwinOnlyPackages = with pkgs; [ ];
 in {
   home.packages = commonPackages
-  ++ (if isLinux then linuxOnlyPackages else [])
-  ++ (if isDarwin then darwinOnlyPackages else []);
+    ++ (if pkgs.stdenv.isLinux then linuxOnlyPackages else [ ])
+    ++ (if pkgs.stdenv.isDarwin then darwinOnlyPackages else [ ]);
 }
