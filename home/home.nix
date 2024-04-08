@@ -14,6 +14,7 @@ in {
     ./modules/i3
     ./modules/kitty.nix
     ./modules/neovim.nix
+    ./modules/tmux
     ./modules/zsh.nix
 
     ./packages.nix
