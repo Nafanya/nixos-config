@@ -11,6 +11,7 @@ in {
     ./modules/firefox.nix
     ./modules/git.nix
     ./modules/gtk.nix
+    ./modules/i3
     ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/zsh.nix
