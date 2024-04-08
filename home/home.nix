@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }:
-let
-  isLinux = pkgs.stdenv.isLinux;
-  isDarwin = pkgs.stdenv.isDarwin;
-in {
+{ config, lib, pkgs, ... }: {
 
   imports = [
     ./modules/dunst.nix
@@ -23,7 +19,7 @@ in {
   home.stateVersion = "23.11";
   home.username = lib.mkDefault "nikita";
   home.homeDirectory =
-    lib.mkDefault (if isLinux then "/home/nikita" else "/Users/nikita");
+    lib.mkDefault (if pkgs.stdenv.isLinux then "/home/nikita" else "/Users/nikita");
 
   programs.home-manager.enable = true;
 }
