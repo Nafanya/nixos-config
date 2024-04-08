@@ -32,7 +32,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bak";
-              home-manager.users.nikita = import ./home;
+              home-manager.users.nikita = import ./home/home-linux.nix;
             }
 
             sops-nix.nixosModules.sops

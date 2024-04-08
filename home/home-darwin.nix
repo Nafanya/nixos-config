@@ -1,10 +1,6 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
 
-  home.stateVersion = "23.11";
-  home.username = lib.mkDefault "nikita";
-  home.homeDirectory = lib.mkDefault "/Users/nikita";
+  imports = [ ./common.nix ];
 
-  programs.home-manager.enable = true;
+  home.homeDirectory = lib.mkForce "/Users/nikita";
 }
-
