@@ -1,13 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [ ./browsers.nix ./common.nix ];
 
-  programs.neovim = {
-    defaultEditor = true;
-    enable = true;
-    vimAlias = true;
-    plugins = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
-  };
-
   services.emacs.enable = true;
 
   programs.emacs = {
