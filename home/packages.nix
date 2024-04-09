@@ -21,6 +21,7 @@ let
     #misc
     ffmpeg
     spotify
+    instaloader
   ];
   linuxOnlyPackages = with pkgs; [
     #utils
