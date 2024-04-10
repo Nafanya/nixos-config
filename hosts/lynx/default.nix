@@ -9,14 +9,14 @@
     ./hardware-configuration.nix
 
     # My configs
-    ./vim.nix
-
-    ./steam.nix
-
-    ./nginx.nix
-    ./hass.nix
+    ./hass
     ./jellyfin.nix
+    ./nginx.nix
+    ./steam.nix
+    ./vim.nix
   ];
+
+  sops.defaultSopsFile = ./secrets.yaml;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

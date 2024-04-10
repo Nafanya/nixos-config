@@ -1,6 +1,7 @@
 keys:
   - &nikita age17xyy5ghfcgmx9zqgsy30a77cnzfp2dc9u2pnyrywkt37l6npnemsnx823c
   - &server_nihonzaru age1frgcsf9h7jwyucs6p8da32479r3g6ga3xqsx03qx2qfn5unulggqayrg2r
+  - &server_lynx age1fmg5z780jt86sl2w5rarlh4tq0y6w26y3m73nyqyrcywmephty6s3v9jkv
 creation_rules:
   - path_regex: hosts/pc/[^/]+\.yaml$
     key_groups:
@@ -11,3 +12,8 @@ creation_rules:
     - age:
       - *nikita
       - *server_nihonzaru
+  - path_regex: hosts/lynx/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *nikita
+      - *server_lynx
