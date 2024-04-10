@@ -1,4 +1,6 @@
 { config, lib, pkgs, ... }: {
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   services.home-assistant = {
     enable = true;
@@ -7,6 +9,7 @@
       # Components required to complete the onboarding
       "met"
       "radio_browser"
+      "homekit"
     ];
     extraPackages = python3Packages: with python3Packages; [ securetar ];
   };
