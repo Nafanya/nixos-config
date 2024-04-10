@@ -8,8 +8,18 @@
   services.home-assistant = {
     enable = true;
     openFirewall = true;
-    extraComponents = [ "met" "radio_browser" "homekit" ];
+    extraComponents = [
+      "met"
+      "radio_browser"
+      "homekit"
+      "govee_ble"
+      "govee_light_local"
+      "tplink"
+      "tplink_tapo"
+    ];
     extraPackages = python3Packages: with python3Packages; [ securetar ];
+    customComponents = with pkgs.home-assistant-custom-components;
+      [ govee-lan ];
     config = {
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/
@@ -29,6 +39,9 @@
         country = "GB";
       };
 
+      homekit = {
+        filter = { include_domains = [ "light" "vacuum" "media_player" ]; };
+      };
     };
   };
 
