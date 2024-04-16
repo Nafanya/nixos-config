@@ -46,6 +46,16 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "550.67";
+      sha256_64bit = "sha256-mSAaCccc/w/QJh6w8Mva0oLrqB+cOSO1YMz1Se/32uI=";
+      sha256_aarch64 = "sha256-+UuK0UniAsndN15VDb/xopjkdlc6ZGk5LIm/GNs5ivA=";
+      openSha256 = "sha256-M/1qAQxTm61bznAtCoNQXICfThh3hLqfd0s1n1BFj2A=";
+      settingsSha256 = "sha256-FUEwXpeUMH1DYH77/t76wF1UslkcW721x9BHasaRUaM=";
+      persistencedSha256 =
+        "sha256-ojHbmSAOYl3lOi2X6HOBlokTXhTCK6VNsH6+xfGQsyo=";
+    };
+
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
@@ -64,8 +74,23 @@
     open = false;
 
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
+
+  boot.extraModprobeConfig = "options nvidia " + lib.concatStringsSep " " [
+    # nvidia assume that by default your CPU does not support PAT,
+    # but this is effectively never the case in 2023
+    "NVreg_UsePageAttributeTable=1"
+    # This may be a noop, but it's somewhat uncertain
+    "NVreg_EnablePCIeGen3=1"
+    # This is sometimes needed for ddc/ci support, see
+    # https://www.ddcutil.com/nvidia/
+    #
+    # Current monitor does not support it, but this is useful for
+    # the future
+    "NVreg_RegistryDwords=RMUseSwI2c=0x01;RMI2cSpeed=100"
+    # When (if!) I get another nvidia GPU, check for resizeable bar
+    # settings
+  ];
 
   hardware.opengl = {
     enable = true;
