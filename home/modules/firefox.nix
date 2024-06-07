@@ -4,6 +4,7 @@
     #TODO: fix this and other conditional for linux/darwin
     package = if pkgs.stdenv.isLinux then pkgs.firefox else pkgs.firefox-bin;
     profiles.nikita = {
+      containersForce = true;
       #TODO: add extensions
       containers = {
         personal = {
