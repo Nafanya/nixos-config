@@ -16,7 +16,7 @@ let
 
     # nix
     home-manager
-    nixfmt
+    nixfmt-classic
 
     #misc
     ffmpeg
