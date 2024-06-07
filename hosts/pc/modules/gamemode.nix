@@ -13,5 +13,7 @@
   };
 
   users.users.nikita.extraGroups = [ "gamemode" ];
+  #  hardware.xone.enable = true;
+  hardware.xpadneo.enable = true;
 
 }
