@@ -46,51 +46,34 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "550.67";
-      sha256_64bit = "sha256-mSAaCccc/w/QJh6w8Mva0oLrqB+cOSO1YMz1Se/32uI=";
-      sha256_aarch64 = "sha256-+UuK0UniAsndN15VDb/xopjkdlc6ZGk5LIm/GNs5ivA=";
-      openSha256 = "sha256-M/1qAQxTm61bznAtCoNQXICfThh3hLqfd0s1n1BFj2A=";
-      settingsSha256 = "sha256-FUEwXpeUMH1DYH77/t76wF1UslkcW721x9BHasaRUaM=";
+    package = let
+      rcu_patch = pkgs.fetchpatch {
+        url =
+          "https://github.com/gentoo/gentoo/raw/c64caf53/x11-drivers/nvidia-drivers/files/nvidia-drivers-470.223.02-gpl-pfn_valid.patch";
+        hash = "sha256-eZiQQp2S/asE7MfGvfe6dA/kdCvek9SYa/FFGp24dVg=";
+      };
+    in config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "535.154.05";
+      sha256_64bit = "sha256-fpUGXKprgt6SYRDxSCemGXLrEsIA6GOinp+0eGbqqJg=";
+      sha256_aarch64 = "sha256-G0/GiObf/BZMkzzET8HQjdIcvCSqB1uhsinro2HLK9k=";
+      openSha256 = "sha256-wvRdHguGLxS0mR06P5Qi++pDJBCF8pJ8hr4T8O6TJIo=";
+      settingsSha256 = "sha256-9wqoDEWY4I7weWW05F4igj1Gj9wjHsREFMztfEmqm10=";
       persistencedSha256 =
-        "sha256-ojHbmSAOYl3lOi2X6HOBlokTXhTCK6VNsH6+xfGQsyo=";
+        "sha256-d0Q3Lk80JqkS1B54Mahu2yY/WocOqFFbZVBh+ToGhaE=";
+
+      patches = [ rcu_patch ];
     };
 
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    powerManagement.enable = true;
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.enable = false;
     powerManagement.finegrained = false;
 
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of
-    # supported GPUs is at:
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
 
     nvidiaSettings = true;
   };
-
-  boot.extraModprobeConfig = "options nvidia " + lib.concatStringsSep " " [
-    # nvidia assume that by default your CPU does not support PAT,
-    # but this is effectively never the case in 2023
-    "NVreg_UsePageAttributeTable=1"
-    # This may be a noop, but it's somewhat uncertain
-    "NVreg_EnablePCIeGen3=1"
-    # This is sometimes needed for ddc/ci support, see
-    # https://www.ddcutil.com/nvidia/
-    #
-    # Current monitor does not support it, but this is useful for
-    # the future
-    "NVreg_RegistryDwords=RMUseSwI2c=0x01;RMI2cSpeed=100"
-    # When (if!) I get another nvidia GPU, check for resizeable bar
-    # settings
-  ];
 
   hardware.opengl = {
     enable = true;
