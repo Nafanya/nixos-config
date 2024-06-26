@@ -24,5 +24,12 @@
     };
   };
 
-  environment.systemPackages = [ pkgs.mpv pkgs.xscreensaver ];
+  environment.systemPackages = with pkgs; [
+    mpv
+    xscreensaver
+    clinfo
+    glxinfo
+    vulkan-tools
+    wayland-utils
+  ];
 }
