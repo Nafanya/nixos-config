@@ -2,6 +2,7 @@
   services.xserver = {
     enable = true;
     displayManager = { defaultSession = "none+i3"; };
+    desktopManager.plasma6.enable = true;
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
