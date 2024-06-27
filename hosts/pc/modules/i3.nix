@@ -24,6 +24,9 @@
     };
   };
 
+  #TODO: move to separate KDE file
+  programs.kdeconnect.enable = true;
+
   environment.systemPackages = with pkgs; [
     mpv
     xscreensaver
