@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
 
   virtualisation = {
-    containers.cdi.dynamic.nvidia.enable = true;
+    #containers.cdi.dynamic.nvidia.enable = true;
 
     podman = {
       enable = true;
