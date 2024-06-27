@@ -46,10 +46,7 @@
       i3 = { default = [ "gtk" ]; };
       hyprland = { default = [ "hyprland" ]; };
     };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
   };
 
   # This value determines the NixOS release from which the default
