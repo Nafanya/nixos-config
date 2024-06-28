@@ -9,7 +9,7 @@
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "amdgpu" ];
   boot.blacklistedKernelModules =
     [ "nouveau" "i915" ]; # TODO: figure out optimus+i915
   boot.extraModulePackages = [ ];
@@ -50,17 +50,5 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      amdvlk
-      rocmPackages.clr.icd
-    ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      libva
-      driversi686Linux.amdvlk
-    ];
   };
-
 }
