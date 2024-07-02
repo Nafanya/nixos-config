@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  services.dunst = { enable = true && pkgs.stdenv.isLinux; };
-}
+{ pkgs, ... }: { services.dunst = { enable = false && pkgs.stdenv.isLinux; }; }
