@@ -45,6 +45,12 @@
 
   # Load amdgpu driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.kernelParams = [
+    # monitor
+    "video=card1-DP-1:2560x1440@144"
+    # TV
+    "video=card1-HDMI-A-1:3840x2160@120"
+  ];
 
   hardware.opengl = {
     enable = true;
