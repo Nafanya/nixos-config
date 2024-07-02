@@ -74,6 +74,7 @@
     vim
     wget
     htop
+    screenkey
     #TODO: move to home
     #xorg.xhost
     #(mplayer.override { v4lSupport = true; })
