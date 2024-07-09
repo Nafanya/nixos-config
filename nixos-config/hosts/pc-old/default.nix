@@ -12,15 +12,12 @@
 {
   imports = [
     ./modules/system.nix
-    ./modules/i3.nix
 
     ./modules/virtualisation.nix
     ./modules/homebridge.nix
 
-    ./modules/steam.nix
     ./modules/openrgb.nix
     ./modules/openrazer.nix
-    ./modules/gamemode.nix
     ./modules/mtp.nix
 
     ./modules/samba.nix
