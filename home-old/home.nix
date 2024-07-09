@@ -7,7 +7,6 @@
 {
 
   imports = [
-    ./modules/firefox.nix
     ./modules/gtk.nix
     ./modules/i3
     ./modules/neovim.nix
