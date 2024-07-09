@@ -25,8 +25,6 @@
     ./modules/avahi
   ];
 
-  networking.hostName = "pc";
-
   programs.droidcam.enable = true;
 
   services.usbmuxd.enable = true;

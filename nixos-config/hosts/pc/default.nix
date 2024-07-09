@@ -13,6 +13,7 @@
 
     ./hardware-configuration.nix
     ./games.nix
+    ./networking.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
