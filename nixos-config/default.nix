@@ -25,4 +25,13 @@
       options = "--delete-older-than 7d";
     };
   };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {
+      inherit flake-inputs;
+      nixos-config = config;
+    };
+  };
 }
