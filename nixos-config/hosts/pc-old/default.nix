@@ -38,27 +38,6 @@
     powerKey = "suspend";
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config = {
-      common = {
-        default = [ "gtk" ];
-        "UseIn" = "i3";
-      };
-      i3 = {
-        default = [ "gtk" ];
-      };
-      hyprland = {
-        default = [ "hyprland" ];
-      };
-    };
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-    ];
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
