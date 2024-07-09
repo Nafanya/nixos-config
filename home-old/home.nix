@@ -7,11 +7,9 @@
 {
 
   imports = [
-    ./modules/emacs.nix
     ./modules/firefox.nix
     ./modules/gtk.nix
     ./modules/i3
-    ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/tmux
     ./modules/zsh.nix
