@@ -1,1 +1,1 @@
-{ imports = [ ./easyeffect.nix ]; }
+{ imports = [ ./easyeffects.nix ]; }
