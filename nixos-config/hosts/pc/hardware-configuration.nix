@@ -21,10 +21,7 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [
-    "kvm-intel"
-    "amdgpu"
-  ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [ ];
 
@@ -44,20 +41,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # Load amdgpu driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.kernelParams = [
-    # monitor
-    "video=card1-DP-1:2560x1440@144"
-    # TV
-    "video=card1-HDMI-A-1:3840x2160@120"
-  ];
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 }
