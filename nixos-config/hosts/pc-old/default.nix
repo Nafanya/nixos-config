@@ -16,20 +16,10 @@
     ./modules/virtualisation.nix
     ./modules/homebridge.nix
 
-    ./modules/openrgb.nix
-    ./modules/openrazer.nix
     ./modules/mtp.nix
 
     ./modules/samba.nix
 
     ./modules/avahi
   ];
-
-  programs.droidcam.enable = true;
-
-  services.usbmuxd.enable = true;
-
-  services.logind = {
-    powerKey = "suspend";
-  };
 }

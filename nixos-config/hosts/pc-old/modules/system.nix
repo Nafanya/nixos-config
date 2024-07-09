@@ -12,26 +12,4 @@
   ];
 
   i18n.defaultLocale = "en_GB.UTF-8";
-
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-  };
-
-  programs.ssh.startAgent = true;
-
-  environment.systemPackages = with pkgs; [
-    wget
-    screenkey
-    #TODO: move to home
-    #xorg.xhost
-    #(mplayer.override { v4lSupport = true; })
-    #(ffmpeg.override {
-    #  withUnfree = true;
-    #  withNvenc = true;
-    #  withNvdec = true;
-    #})
-    davinci-resolve
-    kdenlive
-  ];
 }
