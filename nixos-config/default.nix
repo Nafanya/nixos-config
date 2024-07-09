@@ -44,4 +44,6 @@
       efi.canTouchEfiVariables = true;
     };
   };
+
+  time.timeZone = "Europe/London";
 }
