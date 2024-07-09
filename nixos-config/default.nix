@@ -8,6 +8,8 @@
   imports = [
     flake-inputs.home-manager.nixosModules.home-manager
     flake-inputs.sops-nix.nixosModules.sops
+
+    ./kde.nix
   ];
 
   nix = {
@@ -98,5 +100,15 @@
         ];
       })
     ];
+  };
+
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        options = "grp:caps_toggle";
+        layout = "us,ru";
+      };
+    };
   };
 }
