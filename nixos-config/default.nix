@@ -46,4 +46,21 @@
   };
 
   time.timeZone = "Europe/London";
+
+  users = {
+    defaultUserShell = pkgs.zsh;
+
+    users = {
+      nikita = {
+        isNormalUser = true;
+        description = "nikitos";
+        extraGroups = [ "wheel" ];
+      };
+
+      natali = {
+        isNormalUser = true;
+        description = "natali";
+      };
+    };
+  };
 }
