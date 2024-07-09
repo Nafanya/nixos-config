@@ -12,7 +12,6 @@
     ./modules/i3
     ./modules/neovim.nix
     ./modules/tmux
-    ./modules/zsh.nix
 
     ./packages.nix
   ];
