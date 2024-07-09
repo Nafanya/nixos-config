@@ -18,6 +18,7 @@
     ripgrep
     tree
     unzip
+    wget
     which
     zip
 

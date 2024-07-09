@@ -24,7 +24,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
       sops-nix,
@@ -32,9 +32,19 @@
       home-manager,
       deploy-rs,
       ...
-    }:
+    }@inputs:
     {
       nixosConfigurations = {
+        refactored-pc = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./nixos-config
+            ./nixos-config/hosts/pc
+          ];
+
+          specialArgs.flake-inputs = inputs;
+        };
+
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
