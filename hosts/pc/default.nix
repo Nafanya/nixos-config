@@ -2,10 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, flake-inputs, ... }:
 
 {
   imports = [
+    flake-inputs.nixos-hardware.nixosModules.common-pc
+    flake-inputs.nixos-hardware.nixosModules.common-pc-ssd
+    flake-inputs.nixos-hardware.nixosModules.common-cpu-intel
+
     ./hardware-configuration.nix
 
     ./modules/system.nix

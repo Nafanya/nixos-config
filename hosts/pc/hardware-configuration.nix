@@ -10,8 +10,7 @@
     [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "amdgpu" ];
-  boot.blacklistedKernelModules =
-    [ "nouveau" "i915" ]; # TODO: figure out optimus+i915
+  boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {

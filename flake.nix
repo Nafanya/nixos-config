@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -40,7 +41,7 @@
 
             sops-nix.nixosModules.sops
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs.flake-inputs = inputs;
         };
         lynx = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
