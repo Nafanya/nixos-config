@@ -5,7 +5,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     # My configs
@@ -61,7 +62,10 @@
   users.users.nikita = {
     isNormalUser = true;
     description = "Nikita Iashchenko";
-    extraGroups = [ "wheel" "i2c" ];
+    extraGroups = [
+      "wheel"
+      "i2c"
+    ];
     packages = with pkgs; [ zsh ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG/p7bL2u2cNo+8eGd/Wd5XVw61066si+e7GKmXOYPU nikita.yaschenko@gmail.com"
@@ -80,7 +84,10 @@
   #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
     # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
     auto-optimise-store = true;
@@ -166,5 +173,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }

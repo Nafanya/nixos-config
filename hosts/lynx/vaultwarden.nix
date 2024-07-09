@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   services.vaultwarden = {
     enable = true;
@@ -9,7 +10,10 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8000 8001 ];
+  networking.firewall.allowedTCPPorts = [
+    8000
+    8001
+  ];
 
   services.nginx = {
     virtualHosts."bitwarden.lynx.local" = {

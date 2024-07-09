@@ -23,8 +23,17 @@
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
-  outputs = inputs@{ self, nixpkgs, sops-nix, nix-darwin, home-manager
-    , deploy-rs, ... }: {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      sops-nix,
+      nix-darwin,
+      home-manager,
+      deploy-rs,
+      ...
+    }:
+    {
       nixosConfigurations = {
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -45,13 +54,23 @@
         };
         lynx = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/lynx sops-nix.nixosModules.sops ];
-          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/lynx
+            sops-nix.nixosModules.sops
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
         nihonzaru = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./hosts/nihonzaru sops-nix.nixosModules.sops ];
-          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/nihonzaru
+            sops-nix.nixosModules.sops
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
       darwinConfigurations = {
@@ -69,7 +88,9 @@
             ./hosts/darwin
             ./hosts/darwin/leopard
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
 
@@ -79,8 +100,7 @@
           profiles.system = {
             user = "root";
             sshUser = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos
-              self.nixosConfigurations.lynx;
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.lynx;
           };
           fastConnection = true;
         };
@@ -89,15 +109,13 @@
           profiles.system = {
             user = "root";
             sshUser = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos
-              self.nixosConfigurations.nihonzaru;
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nihonzaru;
           };
           fastConnection = true;
         };
       };
 
       # This is highly advised, and will prevent many possible mistakes
-      checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }

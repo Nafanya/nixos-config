@@ -1,4 +1,10 @@
-{ inputs, pkgs, lib, ... }: {
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
+{
 
   nixpkgs.hostPlatform = lib.mkForce "x86_64-darwin";
 
@@ -9,7 +15,9 @@
       cleanup = "zap";
       upgrade = true;
     };
-    caskArgs = { no_quarantine = true; };
+    caskArgs = {
+      no_quarantine = true;
+    };
     brews = [ ];
     casks = [ "telegram" ];
   };
@@ -17,7 +25,13 @@
   networking.hostName = "leopard";
 
   environment.systemPackages = with pkgs; [
-    (python311.withPackages (ps: with ps; [ pip requests setuptools ]))
+    (python311.withPackages (
+      ps: with ps; [
+        pip
+        requests
+        setuptools
+      ]
+    ))
     git-lfs
     wget
     deploy-rs

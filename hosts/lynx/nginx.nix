@@ -1,5 +1,14 @@
-{ config, lib, pkgs, ... }: {
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   services.nginx = {
     enable = true;
@@ -12,5 +21,4 @@
     defaults.email = "nikita.yaschenko@gmail.com";
     acceptTerms = true;
   };
-
 }

@@ -1,4 +1,11 @@
-{ inputs, pkgs, lib, home-manager, ... }: {
+{
+  inputs,
+  pkgs,
+  lib,
+  home-manager,
+  ...
+}:
+{
 
   # This is "common" stuff for all darwin hosts
 
@@ -13,11 +20,13 @@
 
   nixpkgs = {
     hostPlatform = lib.mkDefault "x86_64-darwin";
-    config = { allowUnfree = true; };
+    config = {
+      allowUnfree = true;
+    };
   };
 
   nix = {
-#    package = pkgs.nixUnstable;
+    #    package = pkgs.nixUnstable;
     settings = {
       experimental-features = "nix-command flakes";
       max-jobs = "auto";

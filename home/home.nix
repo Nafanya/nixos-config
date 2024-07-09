@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   imports = [
     ./modules/dunst.nix
@@ -18,8 +24,9 @@
 
   home.stateVersion = "23.11";
   home.username = lib.mkDefault "nikita";
-  home.homeDirectory =
-    lib.mkDefault (if pkgs.stdenv.isLinux then "/home/nikita" else "/Users/nikita");
+  home.homeDirectory = lib.mkDefault (
+    if pkgs.stdenv.isLinux then "/home/nikita" else "/Users/nikita"
+  );
 
   programs.home-manager.enable = true;
 }

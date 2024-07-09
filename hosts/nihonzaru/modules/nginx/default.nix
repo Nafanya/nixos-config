@@ -1,6 +1,10 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   services.nginx.commonHttpConfig = ''
     add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload' always;
@@ -8,7 +12,9 @@
 
   # File format:
   #
-  sops.secrets.hetzner-api-credentials = { owner = "nginx"; };
+  sops.secrets.hetzner-api-credentials = {
+    owner = "nginx";
+  };
 
   security.acme.certs = {
     "bitwarden.nikitoci.com" = {
@@ -21,5 +27,7 @@
   };
 
   services.nginx.enable = true;
-  services.nginx = { recommendedTlsSettings = true; };
+  services.nginx = {
+    recommendedTlsSettings = true;
+  };
 }

@@ -1,7 +1,9 @@
 {
   programs.kitty = {
     enable = true;
-    shellIntegration = { enableZshIntegration = true; };
+    shellIntegration = {
+      enableZshIntegration = true;
+    };
     settings = {
       font_family = "monospace";
       bold_font = "auto";

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   services.jellyfin = {
     enable = true;
@@ -10,7 +16,9 @@
       locations = {
         # based on https://jellyfin.org/docs/general/networking/nginx
 
-        "= /" = { return = "302 http://$host/web/"; };
+        "= /" = {
+          return = "302 http://$host/web/";
+        };
         "/" = {
           proxyPass = "http://127.0.0.1:8096";
           recommendedProxySettings = true;

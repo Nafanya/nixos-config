@@ -4,7 +4,10 @@
   users.users.steam = {
     isNormalUser = true;
     description = "Steam runner";
-    packages = with pkgs; [ steam steamcmd ];
+    packages = with pkgs; [
+      steam
+      steamcmd
+    ];
   };
 
   programs.steam = {
@@ -26,8 +29,7 @@
       WorkingDirectory = "/home/steam/games/valheim";
       # the command to execute when the service starts up
       # TODO: extract options from script
-      ExecStart =
-        "${pkgs.steam-run}/bin/steam-run /home/steam/games/valheim/my-server.sh";
+      ExecStart = "${pkgs.steam-run}/bin/steam-run /home/steam/games/valheim/my-server.sh";
       KillSignal = "SIGINT";
       Restart = "always";
       RestartSec = 30;

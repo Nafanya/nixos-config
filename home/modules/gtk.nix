@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   gtk = {
     enable = pkgs.stdenv.isLinux;
     theme = {
@@ -6,7 +7,10 @@
       package = pkgs.catppuccin-gtk.override {
         accents = [ "pink" ];
         size = "compact";
-        tweaks = [ "rimless" "black" ];
+        tweaks = [
+          "rimless"
+          "black"
+        ];
         variant = "macchiato";
       };
     };

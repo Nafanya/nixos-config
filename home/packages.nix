@@ -51,8 +51,10 @@ let
     obs-studio
   ];
   darwinOnlyPackages = with pkgs; [ ];
-in {
-  home.packages = commonPackages
+in
+{
+  home.packages =
+    commonPackages
     ++ (if pkgs.stdenv.isLinux then linuxOnlyPackages else [ ])
     ++ (if pkgs.stdenv.isDarwin then darwinOnlyPackages else [ ]);
 }

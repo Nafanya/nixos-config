@@ -1,6 +1,13 @@
-{ inputs, pkgs, lib, ... }:
-let emacsPackage = pkgs.emacs;
-in {
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
+let
+  emacsPackage = pkgs.emacs;
+in
+{
   programs.emacs = {
     enable = true;
     package = emacsPackage;

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   xdg.configFile = {
     "i3/config".source = ./config;
     "i3status/config".source = ./i3status.conf;

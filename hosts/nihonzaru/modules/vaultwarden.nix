@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   services.vaultwarden = {
     enable = true;
@@ -27,5 +28,4 @@
       };
     };
   };
-
 }

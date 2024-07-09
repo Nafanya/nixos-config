@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   imports = [ ./zones.nix ];
 
@@ -18,14 +24,16 @@
       "tplink_tapo"
     ];
     extraPackages = python3Packages: with python3Packages; [ securetar ];
-    customComponents = with pkgs.home-assistant-custom-components;
-      [ govee-lan ];
+    customComponents = with pkgs.home-assistant-custom-components; [ govee-lan ];
     config = {
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/
       default_config = { };
       http = {
-        trusted_proxies = [ "::1" "127.0.0.1" ];
+        trusted_proxies = [
+          "::1"
+          "127.0.0.1"
+        ];
         use_x_forwarded_for = true;
       };
 
@@ -40,7 +48,13 @@
       };
 
       homekit = {
-        filter = { include_domains = [ "light" "vacuum" "media_player" ]; };
+        filter = {
+          include_domains = [
+            "light"
+            "vacuum"
+            "media_player"
+          ];
+        };
       };
     };
   };
