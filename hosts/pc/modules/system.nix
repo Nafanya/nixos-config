@@ -83,8 +83,8 @@
     #  withNvenc = true;
     #  withNvdec = true;
     #})
-    #davinci-resolve
-    #kdenlive
+    davinci-resolve
+    kdenlive
   ];
 
   security.rtkit.enable = true;
