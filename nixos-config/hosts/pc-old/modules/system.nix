@@ -11,8 +11,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINTeQWq1hmUPwDBvMVeWD9xa/c9IBvo2q+uxNXWySC2e nikita.yaschenko@gmail.com"
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   i18n.defaultLocale = "en_GB.UTF-8";
 
   fonts = {
