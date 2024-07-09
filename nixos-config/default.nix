@@ -63,4 +63,22 @@
       };
     };
   };
+
+  documentation.man.generateCaches = true;
+
+  environment = {
+    systemPackages = with pkgs; [ pavucontrol ];
+  };
+
+  programs = {
+    dconf.enable = true;
+    git.enable = true;
+    htop.enable = true;
+    neovim = {
+      enable = true;
+      vimAlias = true;
+    };
+    nano.enable = false;
+    zsh.enable = true;
+  };
 }

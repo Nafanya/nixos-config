@@ -36,8 +36,6 @@
 
   networking.hostName = "pc";
 
-  programs.zsh.enable = true;
-
   programs.droidcam.enable = true;
 
   services.usbmuxd.enable = true;

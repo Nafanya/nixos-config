@@ -33,8 +33,6 @@
     ];
   };
 
-  programs.dconf.enable = true;
-
   networking.firewall.enable = true;
 
   services.openssh = {
@@ -45,10 +43,7 @@
   programs.ssh.startAgent = true;
 
   environment.systemPackages = with pkgs; [
-    git
-    vim
     wget
-    htop
     screenkey
     #TODO: move to home
     #xorg.xhost
