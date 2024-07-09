@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  services.xserver = {
+  services = {
     displayManager = {
       defaultSession = "plasma";
       sddm.enable = true;
