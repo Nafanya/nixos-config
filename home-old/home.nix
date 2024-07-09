@@ -9,7 +9,6 @@
   imports = [
     ./modules/gtk.nix
     ./modules/i3
-    ./modules/neovim.nix
     ./modules/tmux
 
     ./packages.nix
