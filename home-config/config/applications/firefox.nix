@@ -39,6 +39,7 @@
         };
       };
       search = {
+        force = true;
         engines = {
           "Nix Packages" = {
             urls = [
