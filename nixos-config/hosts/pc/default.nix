@@ -13,6 +13,7 @@
     flake-inputs.nixos-hardware.nixosModules.common-gpu-amd
 
     ./hardware-configuration.nix
+    ./gpu.nix
     ./games.nix
     ./networking.nix
 
