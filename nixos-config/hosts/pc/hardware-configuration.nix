@@ -32,10 +32,11 @@
 
   boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/2838ccd2-89c6-4506-a85b-4ecc75f723e7";
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/42CC-53CF";
-    fsType = "vfat";
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/A576-AFA9";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
   swapDevices = [ ];
 
