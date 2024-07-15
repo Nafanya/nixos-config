@@ -25,10 +25,10 @@
   boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/44580c9d-d408-4c12-9bd6-7699d39e8834";
-    fsType = "ext4";
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
+      fsType = "ext4";
+    };
 
   boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/2838ccd2-89c6-4506-a85b-4ecc75f723e7";
 
