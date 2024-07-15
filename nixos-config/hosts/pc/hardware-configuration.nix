@@ -30,7 +30,14 @@
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/2838ccd2-89c6-4506-a85b-4ecc75f723e7";
+  boot.initrd.luks.devices = {
+    crypted = {
+      # $ blkid /dev/nvme0n1p2
+      # <outputs uuid>
+      device = "/dev/disk/by-uuid/de23d992-6e1c-44a2-bd9f-7d14e888baef";
+      preLVM = true;
+    };
+  };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/A576-AFA9";
