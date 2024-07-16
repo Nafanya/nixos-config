@@ -12,6 +12,7 @@
     flake-inputs.nixos-hardware.nixosModules.common-cpu-intel
 
     ./hardware-configuration.nix
+    ./networking.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
