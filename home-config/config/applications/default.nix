@@ -16,6 +16,7 @@
     fzf
     neofetch
     ripgrep
+    rclone
     tree
     unzip
     wget
