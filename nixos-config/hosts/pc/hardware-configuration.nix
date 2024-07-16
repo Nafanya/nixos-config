@@ -25,10 +25,10 @@
   boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
+    fsType = "ext4";
+  };
 
   boot.initrd.luks.devices = {
     crypted = {
@@ -37,17 +37,22 @@
       device = "/dev/disk/by-uuid/de23d992-6e1c-44a2-bd9f-7d14e888baef";
       preLVM = true;
     };
+    crypted-data = {
+      device = "/dev/disk/by-uuid/2838ccd2-89c6-4506-a85b-4ecc75f723e7";
+      preLVM = true;
+    };
   };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A576-AFA9";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/b3c18ad6-20ae-4c37-89f1-46a6bc8fd635"; }
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A576-AFA9";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
     ];
+  };
+
+  swapDevices = [ { device = "/dev/disk/by-uuid/b3c18ad6-20ae-4c37-89f1-46a6bc8fd635"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
