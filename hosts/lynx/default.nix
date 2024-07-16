@@ -20,20 +20,10 @@
   sops.defaultSopsFile = ./secrets.yaml;
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.hostName = "lynx"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Set your time zone.
-  time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -60,66 +50,28 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nikita = {
-    isNormalUser = true;
-    description = "Nikita Iashchenko";
-    extraGroups = [
-      "wheel"
-      "i2c"
-    ];
-    packages = with pkgs; [ zsh ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEG/p7bL2u2cNo+8eGd/Wd5XVw61066si+e7GKmXOYPU nikita.yaschenko@gmail.com"
       "ssh-ed25519 LHS4reXkb9fI7vmrKliH0uWIWx2jCA0c71ewhdJ0a0I nikita.yaschenko+win@gmail.com"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBD/7H19xdHEMBJDQp2FWtgUduTx6ZW6xghZJsQEpU6O nikita.yaschenko@gmail.com"
     ];
-    shell = pkgs.zsh;
   };
 
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBD/7H19xdHEMBJDQp2FWtgUduTx6ZW6xghZJsQEpU6O nikita.yaschenko@gmail.com"
   ];
 
-  #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
-
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-    auto-optimise-store = true;
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    neovim
     tmux
     htop
     bmon
-    git
     dnsmasq
     bat
     vlc
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  programs.zsh.enable = true;
 
   # List services that you want to enable:
 
@@ -127,31 +79,6 @@
     lidSwitch = "ignore";
     lidSwitchDocked = "ignore";
   };
-
-  ##services.dnsmasq.enable = true;
-  ##services.dnsmasq.extraConfig = ''
-  ##  domain-needed
-  ##  bogus-priv
-  ##  no-resolv
-
-  ##  server=192.168.1.1
-  ##  #server=8.8.4.4
-  ##  #server=1.1.1.1
-
-  ##  listen-address=::1
-  ##  listen-address=127.0.0.1
-  ##  listen-address=192.168.1.250
-  ##  listen-address=192.168.1.251
-
-  ##  log-queries
-  ##  log-facility=/etc/nixos/.persist/dnsmasq/ad-block.log
-  ##  cache-size=10000
-  ##  local-ttl=300
-
-  ##  conf-file=/etc/nixos/.persist/dnsmasq/dnsmasq.blacklist.txt
-  ##  #conf-file=/etc/nixos/.persist/dnsmasq/domains.txt
-  ##  #addn-hosts=/etc/nixos/.persist/dnsmasq/hostnames.txt
-  ##'';
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
