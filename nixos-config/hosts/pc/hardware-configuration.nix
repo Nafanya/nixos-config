@@ -52,6 +52,11 @@
     ];
   };
 
+  fileSystems."/mnt/steam-library" = {
+    device = "/dev/disk/by-uuid/4be2e5ac-b248-4210-b0c2-f4daec2f2adf";
+    fsType = "ext4";
+  };
+
   swapDevices = [ { device = "/dev/disk/by-uuid/b3c18ad6-20ae-4c37-89f1-46a6bc8fd635"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
