@@ -15,4 +15,16 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  programs.ssh.startAgent = true;
+
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchDocked = "ignore";
+  };
 }

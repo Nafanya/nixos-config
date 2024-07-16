@@ -63,27 +63,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    wget
-    tmux
-    htop
-    bmon
-    dnsmasq
-    bat
-    vlc
-  ];
+  environment.systemPackages = with pkgs; [ vlc ];
 
   # List services that you want to enable:
-
-  services.logind = {
-    lidSwitch = "ignore";
-    lidSwitchDocked = "ignore";
-  };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  programs.ssh.startAgent = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ ];

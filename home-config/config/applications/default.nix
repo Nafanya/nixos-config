@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     aria2
     bat
+    bmon
     btop
     file
     fzf
