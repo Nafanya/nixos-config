@@ -16,6 +16,7 @@
     ./gpu.nix
     ./games.nix
     ./networking.nix
+    ./smart.nix
 
     ./openrazer.nix
     ./openrgb.nix

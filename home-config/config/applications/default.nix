@@ -39,6 +39,7 @@
     sysstat
     usbutils # for `lsusb`
     nvtopPackages.full
+    smartmontools
 
     # im
     discord
