@@ -63,6 +63,13 @@
   #  fsType = "zfs";
   #};
 
+  # zpool settings used[1]:
+  # ashift=12 xattr=sa compression=lz4 atime=off
+  #
+  # Was created in mirror mode for 2x10Tb disks
+  #
+  # [1]: https://jrs-s.net/2018/08/17/zfs-tuning-cheat-sheet/
+
   swapDevices = [ { device = "/dev/disk/by-uuid/b3c18ad6-20ae-4c37-89f1-46a6bc8fd635"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
