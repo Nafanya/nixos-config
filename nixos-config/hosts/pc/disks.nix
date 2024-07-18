@@ -5,6 +5,9 @@
   ...
 }:
 {
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
+
   environment.systemPackages = with pkgs; [
     smartmontools
     kdePackages.plasma-disks

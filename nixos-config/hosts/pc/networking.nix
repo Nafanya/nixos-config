@@ -2,6 +2,7 @@
 {
   networking = {
     hostName = "pc";
+    hostId = "96b954d2";
 
     firewall.enable = true;
     firewall.allowedTCPPorts = [ ];
