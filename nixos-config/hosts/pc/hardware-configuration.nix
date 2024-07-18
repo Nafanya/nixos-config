@@ -57,6 +57,12 @@
     fsType = "ext4";
   };
 
+  # Should work automatically? With zfs-automount.service
+  #fileSystems."/mnt/data" = {
+  #  device = "bigdata";
+  #  fsType = "zfs";
+  #};
+
   swapDevices = [ { device = "/dev/disk/by-uuid/b3c18ad6-20ae-4c37-89f1-46a6bc8fd635"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
