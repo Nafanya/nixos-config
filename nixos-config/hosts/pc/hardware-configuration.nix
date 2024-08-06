@@ -26,6 +26,7 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
+  boot.zfs.extraPools = [ "zpool" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
@@ -59,17 +60,17 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/data" = {
-    device = "zpool";
-    fsType = "zfs";
-    options = [ "nofail" ];
-  };
+  #fileSystems."/mnt/data" = {
+  #  device = "zpool";
+  #  fsType = "zfs";
+  #  options = [ "nofail" ];
+  #};
 
-  fileSystems."/mnt/data/videos" = {
-    device = "zpool/videos";
-    fsType = "zfs";
-    options = [ "nofail" ];
-  };
+  #fileSystems."/mnt/data/videos" = {
+  #  device = "zpool/videos";
+  #  fsType = "zfs";
+  #  options = [ "nofail" ];
+  #};
 
   # zpool settings used[1]:
   # ashift=12 xattr=sa compression=lz4 atime=off
