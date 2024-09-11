@@ -19,4 +19,15 @@
   };
 
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ]; # modesetting for amd, 1st in order
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+    open = false;
+    modesetting.enable = true;
+    powerManagement.enable = true;
+  };
 }
