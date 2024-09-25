@@ -3,11 +3,7 @@
   # This file was populated at runtime with the networking
   # details gathered from the active system.
   networking = {
-    nameservers = [
-      "2a01:4ff:ff00::add:2"
-      "2a01:4ff:ff00::add:1"
-      "185.12.64.2"
-    ];
+    nameservers = [ "8.8.8.8" ];
     defaultGateway = "172.31.1.1";
     defaultGateway6 = {
       address = "fe80::1";
@@ -19,7 +15,7 @@
       eth0 = {
         ipv4.addresses = [
           {
-            address = "167.235.29.144";
+            address = "23.88.50.175";
             prefixLength = 32;
           }
         ];
@@ -29,7 +25,7 @@
             prefixLength = 64;
           }
           {
-            address = "fe80::9400:3ff:fe13:fe2a";
+            address = "fe80::9400:3ff:feba:d24e";
             prefixLength = 64;
           }
         ];
@@ -46,10 +42,11 @@
           }
         ];
       };
+
     };
   };
   services.udev.extraRules = ''
-    ATTR{address}=="96:00:03:13:fe:2a", NAME="eth0"
+    ATTR{address}=="96:00:03:ba:d2:4e", NAME="eth0"
 
   '';
 }
