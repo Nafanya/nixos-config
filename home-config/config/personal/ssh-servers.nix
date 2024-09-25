@@ -22,7 +22,7 @@
       identityFile = "~/.ssh/pc-github";
     };
     "nihonzaru" = {
-      hostname = "167.235.29.144";
+      hostname = "23.88.50.175";
       user = "root";
       identityFile = "~/.ssh/id_pc@hetzner_nikitoci.com";
     };
