@@ -20,7 +20,7 @@
 
   programs.git.enable = true;
 
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
   networking.hostName = "nihonzaru";
