@@ -28,7 +28,12 @@
 
   nix.settings.experimental-features = "nix-command flakes";
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+    };
+  };
 
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG8UNqMGTX8xDs9BZSc/nuRh6NHsgovyeFMh2+OQl63Y"
