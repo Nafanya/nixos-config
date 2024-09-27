@@ -3,6 +3,10 @@
   networking = {
     hostName = "pc";
     hostId = "96b954d2";
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
 
     firewall.enable = true;
     firewall.allowedTCPPorts = [ ];
