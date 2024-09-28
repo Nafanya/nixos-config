@@ -14,6 +14,8 @@
     ./modules/acme.nix
     ./modules/vaultwarden.nix
     ./modules/vim.nix
+    ./modules/xray.nix
+    ./modules/my-xray.nix
   ];
 
   sops.defaultSopsFile = ./secrets.yaml;

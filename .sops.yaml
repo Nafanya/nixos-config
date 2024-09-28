@@ -12,6 +12,11 @@ creation_rules:
     - age:
       - *nikita
       - *server_nihonzaru
+  - path_regex: hosts/nihonzaru/secrets/[^/]+$
+    key_groups:
+    - age:
+      - *nikita
+      - *server_nihonzaru
   - path_regex: hosts/lynx/[^/]+\.yaml$
     key_groups:
     - age:
