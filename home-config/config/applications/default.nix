@@ -41,6 +41,9 @@
     nvtopPackages.full
     smartmontools
 
+    # mtp
+    jmtpfs
+
     # im
     discord
     telegram-desktop
