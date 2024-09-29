@@ -11,6 +11,7 @@
 
     # My configs
     ./hass
+    ./homebridge.nix
     ./jellyfin.nix
     ./nginx.nix
     ./steam.nix
