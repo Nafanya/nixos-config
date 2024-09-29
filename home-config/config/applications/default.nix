@@ -52,5 +52,7 @@
     pavucontrol
     playerctl
     qjackctl
+
+    vlc
   ];
 }
