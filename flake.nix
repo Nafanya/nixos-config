@@ -106,7 +106,7 @@
 
       deploy.nodes = {
         lynx = {
-          hostname = "192.168.1.250";
+          hostname = "lynx-root";
           profiles.system = {
             user = "root";
             sshUser = "root";

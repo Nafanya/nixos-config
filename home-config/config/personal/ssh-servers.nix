@@ -9,8 +9,13 @@
     #  identityFile = "~/.ssh/nikitoci.pub";
     #};
     "lynx" = {
-      hostname = "lynx.local";
+      hostname = "192.168.1.250";
       user = "nikita";
+      identityFile = "~/.ssh/lynx";
+    };
+    "lynx-root" = {
+      hostname = "192.168.1.250";
+      user = "root";
       identityFile = "~/.ssh/lynx";
     };
     "leopard" = {
