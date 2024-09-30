@@ -35,31 +35,13 @@
     }@inputs:
     {
       nixosConfigurations = {
-        refactored-pc = nixpkgs.lib.nixosSystem {
+        pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./nixos-config
             ./nixos-config/hosts/pc
           ];
 
-          specialArgs.flake-inputs = inputs;
-        };
-
-        pc = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/pc
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bak";
-              home-manager.users.nikita = import ./home/home.nix;
-            }
-
-            sops-nix.nixosModules.sops
-          ];
           specialArgs.flake-inputs = inputs;
         };
         lynx = nixpkgs.lib.nixosSystem {
