@@ -67,7 +67,11 @@
           )
         );
     in
-    {
+    rec {
+      nixosModules.profiles = builtins.listToAttrs (findModules ./profiles);
+      nixosModules.roles = builtins.listToAttrs (findModules ./roles);
+      nixosModules.modules = builtins.listToAttrs (findModules ./modules);
+
       nixosConfigurations = {
         pc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
