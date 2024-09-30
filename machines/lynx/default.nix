@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ../../hosts/lynx/hardware-configuration.nix
+    ./hardware-configuration.nix
     ../../hosts/lynx/hass
     ../../hosts/lynx/homebridge.nix
     ../../hosts/lynx/jellyfin.nix
