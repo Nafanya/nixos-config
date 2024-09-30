@@ -5,6 +5,7 @@
     [
       locale
       nix
+      ssh-server
       timezone
       unfree
       users

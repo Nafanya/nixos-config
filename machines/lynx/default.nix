@@ -58,8 +58,6 @@
     lidSwitchDocked = "ignore";
   };
 
-  services.openssh.enable = true;
-
   programs.ssh.startAgent = true;
 
   # Open ports in the firewall.
