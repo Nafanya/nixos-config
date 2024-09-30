@@ -10,7 +10,6 @@
     ../../hosts/lynx/homebridge.nix
     ../../hosts/lynx/jellyfin.nix
     ../../hosts/lynx/nginx.nix
-    ../../hosts/lynx/steam.nix
     ../../hosts/lynx/vim.nix
 
     #### NEW defs ####
