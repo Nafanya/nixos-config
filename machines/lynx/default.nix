@@ -44,27 +44,6 @@
   nixpkgs.config.allowUnfree = true;
   #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    trusted-users = [
-      config.users.users.root.name
-      config.users.users.nikita.name
-    ];
-
-    # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-    auto-optimise-store = true;
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

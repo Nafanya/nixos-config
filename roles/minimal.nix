@@ -4,6 +4,7 @@
     with inputs.self.nixosModules.profiles;
     [
       locale
+      nix
       timezone
       users
     ]
