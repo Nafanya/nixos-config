@@ -40,10 +40,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBD/7H19xdHEMBJDQp2FWtgUduTx6ZW6xghZJsQEpU6O nikita.yaschenko@gmail.com"
   ];
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

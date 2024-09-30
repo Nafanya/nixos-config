@@ -6,6 +6,7 @@
       locale
       nix
       timezone
+      unfree
       users
     ]
   );
