@@ -6,7 +6,6 @@
 }:
 {
   imports = [
-    ./hardware-configuration.nix
     ../../hosts/lynx/hass
     ../../hosts/lynx/homebridge.nix
     ../../hosts/lynx/jellyfin.nix
@@ -18,6 +17,9 @@
     inputs.sops-nix.nixosModules.sops
 
     inputs.self.nixosModules.roles.minimal
+
+    ./hardware-configuration.nix
+    ./mounts.nix
   ];
 
   sops.defaultSopsFile = ../../hosts/lynx/secrets.yaml;
