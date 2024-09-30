@@ -28,10 +28,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  programs.sway.enable = true;
-
-  programs.firefox.enable = true;
-
   console.keyMap = "us";
 
   users.users.root.openssh.authorizedKeys.keys = [
@@ -52,18 +48,10 @@
 
   programs.zsh.enable = true;
 
-  # List services that you want to enable:
-
   services.logind = {
     lidSwitch = "ignore";
     lidSwitchDocked = "ignore";
   };
-
-  programs.ssh.startAgent = true;
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ ];
 
   system.stateVersion = "22.11";
 }
