@@ -42,7 +42,8 @@
     smartmontools
 
     # mtp
-    jmtpfs
+    #> jmtpfs -- didn't work well on KDE
+    simple-mtpfs
 
     # im
     discord
