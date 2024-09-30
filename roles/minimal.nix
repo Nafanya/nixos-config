@@ -5,6 +5,7 @@
     [
       locale
       timezone
+      users
     ]
   );
 
