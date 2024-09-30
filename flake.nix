@@ -72,37 +72,60 @@
       nixosModules.roles = builtins.listToAttrs (findModules ./roles);
       nixosModules.modules = builtins.listToAttrs (findModules ./modules);
 
-      nixosConfigurations = {
-        pc = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./nixos-config
-            ./nixos-config/hosts/pc
-          ];
+      nixosConfigurations =
+        {
+          pc = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./nixos-config
+              ./nixos-config/hosts/pc
+            ];
 
-          specialArgs.flake-inputs = inputs;
-        };
-        lynx = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/lynx
-            sops-nix.nixosModules.sops
-          ];
-          specialArgs = {
-            inherit inputs;
+            specialArgs.flake-inputs = inputs;
           };
-        };
-        nihonzaru = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nihonzaru
-            sops-nix.nixosModules.sops
-          ];
-          specialArgs = {
-            inherit inputs;
+          lynx-old = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/lynx
+              sops-nix.nixosModules.sops
+            ];
+            specialArgs = {
+              inherit inputs;
+            };
           };
-        };
-      };
+          nihonzaru = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/nihonzaru
+              sops-nix.nixosModules.sops
+            ];
+            specialArgs = {
+              inherit inputs;
+            };
+          };
+        }
+        // (
+          with nixpkgs.lib;
+          let
+            hosts = debug.traceVal (builtins.attrNames (builtins.readDir ./machines));
+            mkHost =
+              name:
+              let
+                system = builtins.readFile (./machines + "/${name}/system.txt");
+              in
+              nixosSystem {
+                inherit system;
+                modules = [
+                  (import (./machines + "/${name}"))
+                  { networking.hostName = name; }
+                ];
+                specialArgs = {
+                  inherit inputs;
+                };
+              };
+          in
+          genAttrs hosts mkHost
+        );
       darwinConfigurations = {
         leopard = nix-darwin.lib.darwinSystem {
           system = "x86_64-darwin";
