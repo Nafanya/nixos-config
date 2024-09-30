@@ -33,6 +33,40 @@
       deploy-rs,
       ...
     }@inputs:
+    let
+      # Recursively scans a directory `dir` and finds *.nix files
+      # which are "profiles", "roles" or "modules".
+      findModules =
+        dir:
+        builtins.concatLists (
+          builtins.attrValues (
+            builtins.mapAttrs (
+              name: type:
+              if type == "regular" then
+                [
+                  {
+                    name = builtins.elemAt (builtins.match "(.*)\\.nix" name) 0;
+                    value = dir + "/${name}";
+                  }
+                ]
+              else if (builtins.readDir (dir + "/${name}")) ? "default.nix" then
+                [
+                  {
+                    inherit name;
+                    value = dir + "/${name}";
+                  }
+                ]
+              else
+                [
+                  {
+                    inherit name;
+                    value = builtins.listToAttrs (findModules (dir + "/${name}"));
+                  }
+                ]
+            ) (builtins.readDir dir)
+          )
+        );
+    in
     {
       nixosConfigurations = {
         pc = nixpkgs.lib.nixosSystem {
