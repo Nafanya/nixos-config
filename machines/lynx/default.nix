@@ -16,7 +16,9 @@
 
     #### NEW defs ####
     inputs.sops-nix.nixosModules.sops
-  ] ++ (with inputs.self.nixosModules.profiles; [ locale ]);
+
+    inputs.self.nixosModules.roles.minimal
+  ];
 
   sops.defaultSopsFile = ../../hosts/lynx/secrets.yaml;
 
@@ -32,9 +34,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Set your time zone.
-  time.timeZone = "Europe/London";
 
   # Wayland + sway
   programs.sway.enable = true;
