@@ -14,7 +14,10 @@
 
     #TODO: share with other machines
     hosts = {
-      "192.168.1.250" = [ "jellyfin.local.nikitoci.com" ];
+      "192.168.1.250" = [
+        "jellyfin.local.nikitoci.com"
+        "homebridge.local.nikitoci.com"
+      ];
     };
 
     # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
