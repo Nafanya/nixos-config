@@ -8,7 +8,6 @@
   imports = [
     ../../hosts/lynx/hass
     ../../hosts/lynx/homebridge.nix
-    ../../hosts/lynx/jellyfin.nix
     ../../hosts/lynx/vim.nix
 
     #### NEW defs ####
@@ -16,6 +15,8 @@
 
     inputs.self.nixosModules.profiles.server.acme
     inputs.self.nixosModules.profiles.server.nginx
+
+    inputs.self.nixosModules.profiles.server.jellyfin
 
     ./hardware-configuration.nix
     ./mounts.nix

@@ -17,8 +17,9 @@
     };
 
     certs = {
-      "nikitoci.com" = {
-        extraDomainNames = [ "*.nikitoci.com" ];
+      "nikitoci.com" = { };
+      "local.nikitoci.com" = {
+        extraDomainNames = [ "*.local.nikitoci.com" ];
       };
     };
   };
