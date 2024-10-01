@@ -5,6 +5,7 @@
     [
       locale
       nix
+      sops
       ssh-server
       timezone
       unfree

@@ -9,19 +9,17 @@
     ../../hosts/lynx/hass
     ../../hosts/lynx/homebridge.nix
     ../../hosts/lynx/jellyfin.nix
-    ../../hosts/lynx/nginx.nix
     ../../hosts/lynx/vim.nix
 
     #### NEW defs ####
-    inputs.sops-nix.nixosModules.sops
-
     inputs.self.nixosModules.roles.minimal
+
+    inputs.self.nixosModules.profiles.server.acme
+    inputs.self.nixosModules.profiles.server.nginx
 
     ./hardware-configuration.nix
     ./mounts.nix
   ];
-
-  sops.defaultSopsFile = ../../hosts/lynx/secrets.yaml;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;

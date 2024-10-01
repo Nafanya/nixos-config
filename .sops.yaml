@@ -22,3 +22,10 @@ creation_rules:
     - age:
       - *nikita
       - *server_lynx
+  - path_regex: ^secrets/.+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *nikita
+      - *server_nihonzaru
+      - *server_lynx
+
