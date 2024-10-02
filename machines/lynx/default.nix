@@ -6,17 +6,14 @@
 }:
 {
   imports = [
-    ../../hosts/lynx/hass
-    ../../hosts/lynx/vim.nix
-
-    #### NEW defs ####
     inputs.self.nixosModules.roles.minimal
 
     inputs.self.nixosModules.profiles.server.acme
     inputs.self.nixosModules.profiles.server.nginx
 
-    inputs.self.nixosModules.profiles.server.jellyfin
+    inputs.self.nixosModules.profiles.server.hass
     inputs.self.nixosModules.profiles.server.homebridge
+    inputs.self.nixosModules.profiles.server.jellyfin
 
     ./hardware-configuration.nix
     ./mounts.nix

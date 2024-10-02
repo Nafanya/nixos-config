@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -60,7 +61,10 @@
   };
 
   services.nginx = {
-    virtualHosts."hass.local" = {
+    virtualHosts."hass.local.nikitoci.com" = {
+      useACMEHost = "local.nikitoci.com";
+      onlySSL = true;
+
       locations."/" = {
         proxyPass = "http://127.0.0.1:8123";
         proxyWebsockets = true;
@@ -74,6 +78,7 @@
 
   sops.secrets."home-assistant-secrets.yaml" = {
     owner = "hass";
+    sopsFile = "${inputs.self}/secrets/hass.yaml";
     path = "/var/lib/hass/secrets.yaml";
     restartUnits = [ "home-assistant.service" ];
   };

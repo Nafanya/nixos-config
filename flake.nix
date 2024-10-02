@@ -83,16 +83,6 @@
 
             specialArgs.flake-inputs = inputs;
           };
-          lynx-old = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              ./hosts/lynx
-              sops-nix.nixosModules.sops
-            ];
-            specialArgs = {
-              inherit inputs;
-            };
-          };
           nihonzaru = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [

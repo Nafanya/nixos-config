@@ -17,6 +17,7 @@
       "192.168.1.250" = [
         "jellyfin.local.nikitoci.com"
         "homebridge.local.nikitoci.com"
+        "hass.local.nikitoci.com"
       ];
     };
 
