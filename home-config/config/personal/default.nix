@@ -2,7 +2,10 @@
 {
   imports = [ ./ssh-servers.nix ];
 
-  home.packages = with pkgs; [ mpv ];
+  home.packages = with pkgs; [
+    mpv
+    streamlink
+  ];
 
   programs.git = {
     enable = true;
