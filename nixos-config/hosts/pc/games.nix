@@ -42,16 +42,6 @@
     gamescope = {
       enable = true;
       capSysNice = true;
-      args = [
-        "--steam"
-        "--expose-wayland"
-        "--rt"
-        "-W 2560"
-        "-HG 1440"
-        "--force-grab-cursor"
-        "--grab"
-        "--fullscreen"
-      ];
     };
   };
 }
