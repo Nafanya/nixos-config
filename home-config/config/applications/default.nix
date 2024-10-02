@@ -4,6 +4,7 @@
     ./emacs.nix
     ./firefox.nix
     ./kitty.nix
+    ./mpv
     ./neovim.nix
     ./tmux.nix
   ];
