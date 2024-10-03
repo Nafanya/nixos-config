@@ -10,7 +10,7 @@ with lib;
 {
   options = {
 
-    services.nikitoci-xray = {
+    services.xray-nikitoci = {
       enable = mkOption {
         type = types.bool;
         default = false;
@@ -63,7 +63,7 @@ with lib;
 
   config =
     let
-      cfg = config.services.nikitoci-xray;
+      cfg = config.services.xray-nikitoci;
       user = config.users.users.xray.name;
       group = config.users.groups.xray.name;
       settingsFile =
@@ -93,7 +93,7 @@ with lib;
       };
       users.groups.xray = { };
 
-      systemd.services.nikitoci-xray = {
+      systemd.services.xray-nikitoci = {
         description = "xray Daemon";
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];

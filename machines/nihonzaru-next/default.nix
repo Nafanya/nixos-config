@@ -13,15 +13,12 @@
     inputs.self.nixosModules.profiles.server.nginx
 
     inputs.self.nixosModules.profiles.server.vaultwarden
-    ../../hosts/nihonzaru/modules/xray.nix
-    ../../hosts/nihonzaru/modules/my-xray.nix
+    inputs.self.nixosModules.profiles.server.xray
 
     ./hardware-configuration.nix
     ./mounts.nix
     ./networking.nix # generated at runtime by nixos-infect
   ];
-
-  sops.defaultSopsFile = ../../hosts/nihonzaru/secrets.yaml;
 
   programs.git.enable = true;
   programs.neovim.enable = true;
