@@ -14,10 +14,13 @@
       dnsResolver = "1.1.1.1:53"; # Cloudflare
       dnsProvider = "hetzner";
       environmentFile = config.sops.secrets."creds/hetzner.env".path;
+      postRun = "systemctl reload nginx.service";
     };
 
     certs = {
-      "nikitoci.com" = { };
+      "nikitoci.com" = {
+        extraDomainNames = [ "bitwarden.nikitoci.com" ];
+      };
       "local.nikitoci.com" = {
         extraDomainNames = [ "*.local.nikitoci.com" ];
       };

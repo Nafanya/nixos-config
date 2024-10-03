@@ -6,26 +6,20 @@
   ...
 }:
 {
-  #imports = [
-  #  inputs.self.nixosModules.roles.minimal
-
-  #  ./mounts.nix
-  #];
-
   imports = [
+    inputs.self.nixosModules.roles.minimal
 
-    inputs.sops-nix.nixosModules.sops
-    ../../hosts/nihonzaru/networking.nix # generated at runtime by nixos-infect
+    inputs.self.nixosModules.profiles.server.acme
+    inputs.self.nixosModules.profiles.server.nginx
 
-    ../../hosts/nihonzaru/modules/nginx
-    ../../hosts/nihonzaru/modules/acme.nix
-    ../../hosts/nihonzaru/modules/vaultwarden.nix
+    inputs.self.nixosModules.profiles.server.vaultwarden
     ../../hosts/nihonzaru/modules/vim.nix
     ../../hosts/nihonzaru/modules/xray.nix
     ../../hosts/nihonzaru/modules/my-xray.nix
 
     ./hardware-configuration.nix
     ./mounts.nix
+    ./networking.nix # generated at runtime by nixos-infect
   ];
 
   sops.defaultSopsFile = ../../hosts/nihonzaru/secrets.yaml;
@@ -34,15 +28,6 @@
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
-
-  nix.settings.experimental-features = "nix-command flakes";
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-    };
-  };
 
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG8UNqMGTX8xDs9BZSc/nuRh6NHsgovyeFMh2+OQl63Y"
