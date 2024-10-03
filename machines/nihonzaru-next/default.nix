@@ -9,14 +9,12 @@
   #imports = [
   #  inputs.self.nixosModules.roles.minimal
 
-  #  ./hardware-configuration.nix
   #  ./mounts.nix
   #];
 
   imports = [
 
     inputs.sops-nix.nixosModules.sops
-    ../../hosts/nihonzaru/hardware-configuration.nix
     ../../hosts/nihonzaru/networking.nix # generated at runtime by nixos-infect
 
     ../../hosts/nihonzaru/modules/nginx
@@ -25,6 +23,8 @@
     ../../hosts/nihonzaru/modules/vim.nix
     ../../hosts/nihonzaru/modules/xray.nix
     ../../hosts/nihonzaru/modules/my-xray.nix
+
+    ./hardware-configuration.nix
   ];
 
   sops.defaultSopsFile = ../../hosts/nihonzaru/secrets.yaml;
