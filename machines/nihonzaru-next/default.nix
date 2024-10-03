@@ -25,6 +25,7 @@
     ../../hosts/nihonzaru/modules/my-xray.nix
 
     ./hardware-configuration.nix
+    ./mounts.nix
   ];
 
   sops.defaultSopsFile = ../../hosts/nihonzaru/secrets.yaml;
