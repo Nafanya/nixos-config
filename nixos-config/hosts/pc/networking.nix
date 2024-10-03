@@ -18,6 +18,7 @@
         "jellyfin.local.nikitoci.com"
         "homebridge.local.nikitoci.com"
         "hass.local.nikitoci.com"
+        "cloud.local.nikitoci.com"
       ];
     };
 
