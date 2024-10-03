@@ -1,10 +1,7 @@
 { config, pkgs, ... }:
 {
 
-  xdg.configFile = {
-    "mpv/mpv.conf".source = ./mpv.conf;
-    "mpv/fsr.glsl".source = ./fsr.glsl;
-  };
+  xdg.configFile.mpv.source = ./config;
 
   programs.mpv = {
     enable = true;
