@@ -13,7 +13,6 @@
     inputs.self.nixosModules.profiles.server.nginx
 
     inputs.self.nixosModules.profiles.server.vaultwarden
-    ../../hosts/nihonzaru/modules/vim.nix
     ../../hosts/nihonzaru/modules/xray.nix
     ../../hosts/nihonzaru/modules/my-xray.nix
 
@@ -25,6 +24,7 @@
   sops.defaultSopsFile = ../../hosts/nihonzaru/secrets.yaml;
 
   programs.git.enable = true;
+  programs.neovim.enable = true;
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
