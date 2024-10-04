@@ -22,10 +22,16 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    clinfo
-    glxinfo
-    vulkan-tools
-    wayland-utils
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      clinfo
+      glxinfo
+      vulkan-tools
+      wayland-utils
+    ]
+    ++ (with kdePackages; [
+      ksystemlog
+      filelight
+    ]);
 }
