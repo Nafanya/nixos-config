@@ -11,6 +11,7 @@
       unfree
       users
     ]
+    ++ [ inputs.self.nixosModules.profiles.home-manager ]
   );
 
   security.polkit.enable = true;

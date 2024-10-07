@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ ./minimal.nix ] ++ [ inputs.self.nixosModules.profiles.home-manager ];
+  imports = [ ./minimal.nix ];
 
   documentation.man.generateCaches = lib.mkDefault true;
 }

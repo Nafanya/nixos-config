@@ -5,11 +5,7 @@
   ...
 }:
 {
-  imports = [
-    flake-inputs.home-manager.nixosModules.home-manager
-
-    ./kde.nix
-  ];
+  imports = [ ./kde.nix ];
 
   home-manager = {
     useGlobalPkgs = true;
