@@ -39,36 +39,6 @@
     systemPackages = with pkgs; [ pavucontrol ];
   };
 
-  programs = {
-    dconf.enable = true;
-    git.enable = true;
-    htop.enable = true;
-    neovim = {
-      enable = true;
-      vimAlias = true;
-    };
-    nano.enable = false;
-    zsh.enable = true;
-  };
-
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      font-awesome
-      powerline-fonts
-      powerline-symbols
-      source-code-pro
-      (nerdfonts.override {
-        fonts = [
-          "SpaceMono"
-          "JetBrainsMono"
-          "DejaVuSansMono"
-          "SourceCodePro"
-        ];
-      })
-    ];
-  };
-
   services = {
     xserver = {
       enable = true;
