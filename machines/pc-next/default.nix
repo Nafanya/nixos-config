@@ -11,6 +11,7 @@
 
     ### NEW
     #inputs.self.nixosModules.roles.minimal
+    inputs.self.nixosModules.profiles.nix
 
     #./hardware-configuration.nix
     #./mounts.nix
