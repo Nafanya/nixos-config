@@ -7,7 +7,6 @@
 {
   imports = [
     flake-inputs.home-manager.nixosModules.home-manager
-    flake-inputs.sops-nix.nixosModules.sops
 
     ./kde.nix
   ];
@@ -31,18 +30,8 @@
     };
   };
 
-  time.timeZone = "Europe/London";
-
   users = {
-    defaultUserShell = pkgs.zsh;
-
     users = {
-      nikita = {
-        isNormalUser = true;
-        description = "nikitos";
-        extraGroups = [ "wheel" ];
-      };
-
       natali = {
         isNormalUser = true;
         description = "natali";

@@ -6,12 +6,7 @@
 }:
 {
   imports = [
-    #    inputs.home-manager.nixosModules.home-manager
-    #    inputs.sops-nix.nixosModules.sops
-
-    ### NEW
-    #inputs.self.nixosModules.roles.minimal
-    inputs.self.nixosModules.profiles.nix
+    inputs.self.nixosModules.roles.desktop
 
     #./hardware-configuration.nix
     #./mounts.nix

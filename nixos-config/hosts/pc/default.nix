@@ -24,19 +24,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  i18n.defaultLocale = "en_GB.UTF-8";
-
   home-manager.users.nikita = import "${flake-inputs.self}/home-config/hosts/pc.nix";
 
   #TODO: maybe there's a better place for everything below
   programs.droidcam.enable = true;
 
   services.usbmuxd.enable = true;
-
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-  };
 
   programs.ssh.startAgent = true;
 }
