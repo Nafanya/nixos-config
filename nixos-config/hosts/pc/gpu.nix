@@ -14,6 +14,8 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       rocmPackages.clr
+      rocmPackages.rocminfo
+      rocmPackages.rocm-runtime
       libva
       libva-utils
       vdpauinfo
