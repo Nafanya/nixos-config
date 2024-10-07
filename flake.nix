@@ -97,10 +97,11 @@
                 inherit system;
                 modules = [
                   (import (./machines + "/${name}"))
-                  { networking.hostName = name; }
+                  { networking.hostName = mkDefault name; }
                 ];
                 specialArgs = {
                   inherit inputs;
+                  flake-inputs = inputs;
                 };
               };
           in
