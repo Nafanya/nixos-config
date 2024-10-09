@@ -66,8 +66,6 @@
     };
   };
 
-  documentation.man.generateCaches = true;
-
   environment = {
     systemPackages = with pkgs; [ pavucontrol ];
   };
