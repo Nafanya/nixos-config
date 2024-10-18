@@ -7,11 +7,16 @@
 {
   imports =
     [ ./minimal.nix ]
-    ++ (with inputs.self.nixosModules.profiles; [
-      fonts
-      gui.kde
-      sound
-    ]);
+    ++ (
+      with inputs.self.nixosModules.profiles;
+      with apps;
+      [ mpv ]
+      ++ (with gui; [ kde ])
+      ++ [
+        fonts
+        sound
+      ]
+    );
 
   programs = {
     dconf.enable = true;
