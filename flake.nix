@@ -76,10 +76,7 @@
         {
           pc = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            modules = [
-              ./nixos-config
-              ./nixos-config/hosts/pc
-            ];
+            modules = [ ./nixos-config/hosts/pc ];
 
             specialArgs.flake-inputs = inputs;
           };

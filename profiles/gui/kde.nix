@@ -35,6 +35,8 @@
   environment.systemPackages =
     with pkgs;
     [
+      pavucontrol
+
       clinfo
       glxinfo
       vulkan-tools

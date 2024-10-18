@@ -13,10 +13,4 @@
       };
     };
   };
-
-  environment = {
-    systemPackages = with pkgs; [ pavucontrol ];
-  };
-
-  services.gvfs.enable = true;
 }

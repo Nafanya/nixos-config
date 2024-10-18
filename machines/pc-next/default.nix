@@ -12,7 +12,6 @@
     #./hardware-configuration.nix
     #./mounts.nix
 
-    ../../nixos-config
     ../../nixos-config/hosts/pc
   ];
 
