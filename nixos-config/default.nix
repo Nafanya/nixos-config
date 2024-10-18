@@ -7,15 +7,6 @@
 {
   imports = [ ./kde.nix ];
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit flake-inputs;
-      nixos-config = config;
-    };
-  };
-
   users = {
     users = {
       natali = {

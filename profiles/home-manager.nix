@@ -12,7 +12,7 @@
       home = {
         username = "nikita";
         homeDirectory = "/home/nikita";
-        stateVersion = "23.11";
+        stateVersion = config.system.stateVersion;
       };
     };
   };
