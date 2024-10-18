@@ -27,6 +27,8 @@
     ../../nixos-config/hosts/pc
   ];
 
+  home-manager.users.nikita = import "${inputs.self}/home-config/hosts/pc.nix";
+
   boot = {
     loader = {
       systemd-boot = {
