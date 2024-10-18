@@ -1,5 +1,12 @@
-{ lib, ... }:
 {
+  config,
+  inputs,
+  lib,
+  ...
+}:
+{
+  imports = [ inputs.self.nixosModules.modules.xray-nikitoci ];
+
   networking = {
     hostName = "pc";
     hostId = "96b954d2";
@@ -31,4 +38,23 @@
     # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
     # networking.interfaces.wlp0s20f0u11u1.useDHCP = lib.mkDefault true;
   };
+
+  #users.users.xray = {
+  #  isSystemUser = true;
+  #  group = "xray";
+  #};
+  #users.groups.xray = { };
+
+  sops.secrets."xray-client.json" = {
+    format = "binary";
+    sopsFile = "${inputs.self}/secrets/xray-client-config";
+    owner = config.users.users.xray.name;
+    group = config.users.groups.xray.name;
+  };
+
+  services.xray-nikitoci = {
+    enable = true;
+    settingsFile = config.sops.secrets."xray-client.json".path;
+  };
+
 }
