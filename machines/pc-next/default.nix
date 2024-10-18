@@ -20,7 +20,7 @@
     ./hardware-configuration.nix
     ./gpu.nix
     ./networking.nix
-    #./mounts.nix
+    ./disks.nix
 
     ../../nixos-config/hosts/pc
   ];

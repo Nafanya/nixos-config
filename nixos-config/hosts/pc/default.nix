@@ -7,8 +7,6 @@
 }:
 {
   imports = [
-    ./disks.nix
-
     ./openrazer.nix
     ./openrgb.nix
   ];
