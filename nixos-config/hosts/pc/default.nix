@@ -7,7 +7,6 @@
 }:
 {
   imports = [
-    ./gpu.nix
     ./games.nix
     ./networking.nix
     ./disks.nix

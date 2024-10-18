@@ -15,6 +15,7 @@
     inputs.self.nixosModules.roles.desktop
 
     ./hardware-configuration.nix
+    ./gpu.nix
     #./mounts.nix
 
     ../../nixos-config/hosts/pc
