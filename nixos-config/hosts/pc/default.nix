@@ -7,7 +7,6 @@
 }:
 {
   imports = [
-    ./networking.nix
     ./disks.nix
 
     ./openrazer.nix
