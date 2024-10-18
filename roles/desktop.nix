@@ -9,6 +9,7 @@
     [ ./minimal.nix ]
     ++ (with inputs.self.nixosModules.profiles; [
       fonts
+      gui.kde
       sound
     ]);
 
