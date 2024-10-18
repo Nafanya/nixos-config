@@ -7,10 +7,10 @@
       frequency = 30 * 60; # every 30m
       percentage = 20;
     };
-    users = [ "nikita" ];
+    users = [ config.users.users.nikita.name ];
   };
 
-  environment.systemPackages = with pkgs; [
+  home-manager.users.nikita.home.packages = with pkgs; [
     openrazer-daemon
     polychromatic
   ];
