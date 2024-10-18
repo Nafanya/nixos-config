@@ -73,37 +73,27 @@
       nixosModules.modules = builtins.listToAttrs (findModules ./modules);
 
       nixosConfigurations =
-        {
-          pc = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [ ./nixos-config/hosts/pc ];
-
-            specialArgs.flake-inputs = inputs;
-          };
-        }
-        // (
-          with nixpkgs.lib;
-          let
-            hosts = debug.traceVal (builtins.attrNames (builtins.readDir ./machines));
-            mkHost =
-              name:
-              let
-                system = builtins.readFile (./machines + "/${name}/system.txt");
-              in
-              nixosSystem {
-                inherit system;
-                modules = [
-                  (import (./machines + "/${name}"))
-                  { networking.hostName = mkDefault name; }
-                ];
-                specialArgs = {
-                  inherit inputs;
-                  flake-inputs = inputs;
-                };
+        with nixpkgs.lib;
+        let
+          hosts = debug.traceVal (builtins.attrNames (builtins.readDir ./machines));
+          mkHost =
+            name:
+            let
+              system = builtins.readFile (./machines + "/${name}/system.txt");
+            in
+            nixosSystem {
+              inherit system;
+              modules = [
+                (import (./machines + "/${name}"))
+                { networking.hostName = mkDefault name; }
+              ];
+              specialArgs = {
+                inherit inputs;
+                flake-inputs = inputs;
               };
-          in
-          genAttrs hosts mkHost
-        );
+            };
+        in
+        genAttrs hosts mkHost;
       darwinConfigurations = {
         leopard = nix-darwin.lib.darwinSystem {
           system = "x86_64-darwin";

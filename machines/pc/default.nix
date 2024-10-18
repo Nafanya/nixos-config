@@ -23,8 +23,6 @@
     ./gpu.nix
     ./networking.nix
     ./disks.nix
-
-    ../../nixos-config/hosts/pc
   ];
 
   home-manager.users.nikita = import "${inputs.self}/home-config/hosts/pc.nix";
