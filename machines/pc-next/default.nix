@@ -14,6 +14,9 @@
 
     inputs.self.nixosModules.roles.desktop
 
+    inputs.self.nixosModules.profiles.games.steam
+    inputs.self.nixosModules.profiles.games.gamemode
+
     ./hardware-configuration.nix
     ./gpu.nix
     #./mounts.nix
