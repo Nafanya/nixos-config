@@ -5,7 +5,12 @@
   ...
 }:
 {
-  imports = [ ./minimal.nix ] ++ (with inputs.self.nixosModules.profiles; [ fonts ]);
+  imports =
+    [ ./minimal.nix ]
+    ++ (with inputs.self.nixosModules.profiles; [
+      fonts
+      sound
+    ]);
 
   programs = {
     dconf.enable = true;
