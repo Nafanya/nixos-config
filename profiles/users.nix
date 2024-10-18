@@ -1,7 +1,6 @@
 { config, ... }:
 {
   users = {
-    mutableUsers = false;
     users = {
       nikita = {
         isNormalUser = true;
