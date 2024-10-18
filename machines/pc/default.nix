@@ -19,8 +19,6 @@
     inputs.self.nixosModules.profiles.games.openrazer
     inputs.self.nixosModules.profiles.openrgb
 
-    inputs.self.nixosModules.profiles.server.qbittorrent
-
     ./hardware-configuration.nix
     ./gpu.nix
     ./networking.nix
