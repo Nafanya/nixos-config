@@ -5,6 +5,7 @@
     ./firefox.nix
     ./kitty.nix
     ./neovim.nix
+    ./obs.nix
     ./tmux.nix
   ];
 
@@ -48,9 +49,6 @@
     # im
     discord
     telegram-desktop
-
-    #misc
-    obs-studio
 
     # audio
     pavucontrol
