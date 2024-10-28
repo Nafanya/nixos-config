@@ -1,11 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./emacs.nix
     ./firefox.nix
     ./kitty.nix
-    ./neovim.nix
-    ./obs.nix
     ./tmux.nix
   ];
 

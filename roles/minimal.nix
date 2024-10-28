@@ -4,6 +4,7 @@
     with inputs.self.nixosModules.profiles;
     [
       locale
+      neovim
       nix
       shell.git
       shell.zsh
