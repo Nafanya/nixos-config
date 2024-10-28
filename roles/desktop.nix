@@ -11,13 +11,17 @@
       with inputs.self.nixosModules.profiles;
       with apps;
       [
+        firefox
         mpv
         obs
+
+        misc-apps
       ]
       ++ (with gui; [ kde ])
       ++ [
         fonts
         sound
+        easyeffects
 
         shell.emacs
       ]
