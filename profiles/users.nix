@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   users = {
     users = {
@@ -6,6 +6,8 @@
         isNormalUser = true;
         description = "Nikita Iashchenko";
         extraGroups = [ "wheel" ];
+
+        shell = pkgs.zsh;
 
         # Why forcing uid? Because if whole system is
         # reinstalled, users are not guaranteed to map
