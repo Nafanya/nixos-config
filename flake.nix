@@ -105,7 +105,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bak";
-              home-manager.users.nikita = import ./home/home.nix;
             }
             ./hosts/darwin
             ./hosts/darwin/leopard

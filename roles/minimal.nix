@@ -4,7 +4,12 @@
     with inputs.self.nixosModules.profiles;
     [
       locale
+      neovim
       nix
+      shell.git
+      shell.kitty
+      shell.tmux
+      shell.zsh
       sops
       ssh-server
       timezone

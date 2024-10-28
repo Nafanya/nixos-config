@@ -10,11 +10,20 @@
     ++ (
       with inputs.self.nixosModules.profiles;
       with apps;
-      [ mpv ]
+      [
+        firefox
+        mpv
+        obs
+
+        misc-apps
+      ]
       ++ (with gui; [ kde ])
       ++ [
         fonts
         sound
+        easyeffects
+
+        shell.emacs
       ]
     );
 
