@@ -23,6 +23,7 @@
     ./gpu.nix
     ./networking.nix
     ./disks.nix
+    ./ssh-hosts.nix
   ];
 
   boot = {
