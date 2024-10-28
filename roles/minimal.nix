@@ -5,6 +5,8 @@
     [
       locale
       nix
+      shell.git
+      shell.zsh
       sops
       ssh-server
       timezone
