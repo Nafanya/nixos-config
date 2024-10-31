@@ -24,4 +24,8 @@
       };
     };
   };
+
+  #TODO: move somewhere else?
+  # Since `shell = pkgs.zsh` is set, we need to enable zsh as well.
+  programs.zsh.enable = true;
 }
