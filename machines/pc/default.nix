@@ -34,6 +34,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    plymouth.enable = true;
   };
 
   system.stateVersion = "24.05";
