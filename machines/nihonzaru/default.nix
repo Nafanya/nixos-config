@@ -13,6 +13,7 @@
     inputs.self.nixosModules.profiles.server.nginx
 
     inputs.self.nixosModules.profiles.server.vaultwarden
+    inputs.self.nixosModules.profiles.server.website
     inputs.self.nixosModules.profiles.server.xray
 
     ./hardware-configuration.nix
