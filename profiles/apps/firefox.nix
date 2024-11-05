@@ -61,8 +61,13 @@
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
             };
-            "NixOS Wiki" = {
+            "NixOS Wiki (old)" = {
               urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "@nwo" ];
+            };
+            "NixOS Wiki" = {
+              urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@nw" ];
             };
@@ -74,6 +79,10 @@
             "Home Manager Options" = {
               urls = [ { template = "https://home-manager-options.extranix.com/?query={searchTerms}"; } ];
               definedAliases = [ "@hmo" ];
+            };
+            "Arch Linux Wiki" = {
+              urls = [ { template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; } ];
+              definedAliases = [ "@aw" ];
             };
             "Bing".metaData.hidden = true;
             "Google".metaData.alias = "@g";
