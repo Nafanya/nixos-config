@@ -11,13 +11,13 @@
       enable = true;
       support32Bit = true;
     };
-    # fix (?) crackling audio
     extraConfig = {
       pipewire."92-low-latency" = {
-        context.properties = {
+        "context.properties" = {
           "default.clock.allowed-rates" = [
             44100
             48000
+            88200
             96000
           ];
           "default.clock.quantum" = 32;
@@ -26,7 +26,7 @@
         };
       };
       pipewire-pulse."92-low-latency" = {
-        context.modules = [
+        "context.modules" = [
           {
             name = "libpipewire-module-protocol-pulse";
             args = {
@@ -38,12 +38,27 @@
             };
           }
         ];
-        stream.properties = {
+        "stream.properties" = {
           "node.latency" = "32/48000";
           "resample.quality" = 1;
         };
       };
-
+      pipewire."95-obs-sink" = {
+        "context.objects" = [
+          {
+            factory = "adapter";
+            args = {
+              "factory.name" = "support.null-audio-sink";
+              "node.name" = "OBS sink";
+              "media.class" = "Audio/Sink";
+              "object.linger" = true;
+              "audio.position" = "FL,FR";
+              "monitor.channel-volumes" = true;
+              "monitor.passthrough" = true;
+            };
+          }
+        ];
+      };
     };
   };
 }
