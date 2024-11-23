@@ -23,6 +23,7 @@
       ffmpeg
       spotify
       instaloader
+      yt-dlp
       obsidian
 
       # system tools
