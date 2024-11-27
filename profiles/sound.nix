@@ -5,7 +5,27 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-    wireplumber.enable = true;
+    wireplumber = {
+      enable = true;
+      extraConfig = {
+        "51-disable-radeon-hdmi" = {
+          "monitor.alsa.rules" = [
+            {
+              matches = [
+                {
+                  "device.name" = "alsa_card.pci-0000_03_00.1";
+                }
+              ];
+              actions = {
+                update-props = {
+                  "device.disabled" = true;
+                };
+              };
+            }
+          ];
+        };
+      };
+    };
     jack.enable = true;
     alsa = {
       enable = true;
