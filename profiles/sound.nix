@@ -1,6 +1,13 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   security.rtkit.enable = true;
+  # Fix rtkit bug from 2011: https://github.com/heftig/rtkit/issues/13
+  # As per https://wiki.archlinux.org/title/PipeWire#Missing_realtime_priority/crackling_under_load_after_suspend
+  # Note: existing entry for ExecStart needs to be cleared using ""
+  systemd.services.rtkit-daemon.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.rtkit}/libexec/rtkit-daemon --no-canary"
+  ];
 
   services.pipewire = {
     enable = true;
