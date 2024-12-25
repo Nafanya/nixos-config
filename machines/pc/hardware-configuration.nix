@@ -20,6 +20,7 @@
     "usb_storage"
     "sd_mod"
   ];
+  boot.kernelPackages = pkgs.linuxPackages_6_11;
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ ];
@@ -27,6 +28,7 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
   boot.zfs.extraPools = [ "zpool" ];
+  boot.zfs.package = pkgs.zfs_unstable;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
