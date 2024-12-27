@@ -20,6 +20,7 @@
     inputs.self.nixosModules.profiles.openrgb
 
     inputs.self.nixosModules.profiles.server.syncthing
+    inputs.self.nixosModules.profiles.server.nfs
 
     ./hardware-configuration.nix
     ./gpu.nix
