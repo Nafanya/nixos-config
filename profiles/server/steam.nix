@@ -21,14 +21,14 @@
     };
   };
 
-  # networking.firewall.allowedTCPPorts = [
-  #   28852
-  #   8075
-  # ];
-  # networking.firewall.allowedUDPPorts = [
-  #   7707
-  #   7708
-  #   7717
-  #   20560
-  # ];
+  networking.firewall.allowedTCPPorts = [
+    28852
+    8075
+  ];
+  networking.firewall.allowedUDPPorts = [
+    7707
+    7708
+    7717
+    20560
+  ];
 }
