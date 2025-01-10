@@ -17,7 +17,6 @@
         enable = true;
         plugins = [
           "git"
-          "zsh-interactive-cd"
         ];
         theme = "agnoster";
       };
