@@ -20,7 +20,7 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_11;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ ];

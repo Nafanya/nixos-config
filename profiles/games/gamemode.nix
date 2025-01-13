@@ -4,6 +4,7 @@
     mangohud
     lact
     furmark
+    amdgpu_top
   ];
 
   programs.corectrl = {
