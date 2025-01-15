@@ -3,8 +3,10 @@
   home-manager.users.nikita.home.packages = with pkgs; [
     mangohud
     lact
-    furmark
     amdgpu_top
+    mangojuice
+    vkbasalt
+    vkbasalt-cli
   ];
 
   programs.corectrl = {
