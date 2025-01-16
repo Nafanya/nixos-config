@@ -5,12 +5,28 @@
     user = "nikita";
     configDir = "/home/nikita/.config/syncthing";
     openDefaultPorts = true;
-    folders = {
-      "Documents" = {
-        path = "/mnt/data/documents";
+    overrideFolders = false;
+    overrideDevices = false;
+    settings = {
+      devices = {
+        leopard = {
+          id = "A23S6NC-Q22CNST-OCFFVLI-7LCMJTN-AHHMYBF-COFXAMV-QD4RSRW-3M6MFAK";
+        };
+        iphone = {
+          id = "E3UWCTV-H7V2QEP-NVNAW7T-PYK4BJC-WXBZWFR-GWGXGOX-6KJIJZE-INODRQG";
+        };
       };
-      "Obsidian" = {
-        path = "/mnt/data/obsidian";
+      folders = {
+        "Documents" = {
+          path = "/mnt/data/documents";
+        };
+        "Obsidian" = {
+          path = "/mnt/data/obsidian";
+          devices = [
+            "leopard"
+            "iphone"
+          ];
+        };
       };
     };
   };
