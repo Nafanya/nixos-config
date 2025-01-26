@@ -7,6 +7,7 @@
     mangojuice
     vkbasalt
     vkbasalt-cli
+    heroic
   ];
 
   programs.corectrl = {
