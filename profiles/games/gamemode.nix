@@ -10,15 +10,6 @@
     heroic
   ];
 
-  programs.corectrl = {
-    enable = true;
-    gpuOverclock = {
-      enable = true;
-      ppfeaturemask = "0xffffffff";
-    };
-  };
-
-  #TODO: extract LACT to separate profile
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";
     after = [ "multi-user.target" ];
@@ -28,10 +19,10 @@
     };
     enable = true;
   };
-  #boot.kernelParams = [
-  #  # Enable overclocking -- needed by LACT
-  #  "amdgpu.ppfeaturemask=0xFFF7FFFF"
-  #];
+  boot.kernelParams = [
+    # Enable overclocking -- needed by LACT
+    "amdgpu.ppfeaturemask=0xFFFFFFFF"
+  ];
 
   programs.gamemode = {
     enable = true;
