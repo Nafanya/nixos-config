@@ -21,4 +21,10 @@
   };
 
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
+
+  environment.sessionVariables = {
+    # Seems to fix constant GPU throttling
+    # See https://gitlab.freedesktop.org/mesa/mesa/-/issues/11744#note_2536404
+    radv_force_pstate_peak_gfx11_dgpu = "false";
+  };
 }
