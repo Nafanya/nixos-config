@@ -18,6 +18,7 @@
       home-manager
       sops
       nvd # TODO: move to "nix dev shell"
+      deploy-rs
 
       #misc
       ffmpeg

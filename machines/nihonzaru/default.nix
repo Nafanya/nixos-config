@@ -22,7 +22,6 @@
   ];
 
   programs.git.enable = true;
-  programs.neovim.enable = true;
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
