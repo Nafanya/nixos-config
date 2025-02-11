@@ -16,6 +16,8 @@
     inputs.self.nixosModules.profiles.server.website
     inputs.self.nixosModules.profiles.server.xray
 
+    inputs.self.nixosModules.profiles.server.steam
+
     ./hardware-configuration.nix
     ./mounts.nix
     ./networking.nix # generated at runtime by nixos-infect
