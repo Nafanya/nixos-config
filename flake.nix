@@ -23,6 +23,8 @@
     deploy-rs.url = "github:serokell/deploy-rs";
 
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =
@@ -33,6 +35,7 @@
       nix-darwin,
       home-manager,
       deploy-rs,
+      nix-minecraft,
       ...
     }@inputs:
     let
