@@ -15,7 +15,6 @@
     inputs.self.nixosModules.roles.desktop
 
     inputs.self.nixosModules.profiles.games.steam
-    inputs.self.nixosModules.profiles.games.kf1-server
     inputs.self.nixosModules.profiles.games.gamemode
     inputs.self.nixosModules.profiles.games.openrazer
     inputs.self.nixosModules.profiles.openrgb
