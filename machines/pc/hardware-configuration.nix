@@ -83,6 +83,8 @@
 
   swapDevices = [ { device = "/dev/disk/by-uuid/b3c18ad6-20ae-4c37-89f1-46a6bc8fd635"; } ];
 
+  hardware.bluetooth.enable = true;
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
