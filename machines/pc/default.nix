@@ -34,6 +34,7 @@
     ./networking.nix
     ./disks.nix
     ./ssh-hosts.nix
+    ./virtualisation.nix
   ];
 
   boot = {
