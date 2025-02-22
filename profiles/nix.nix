@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   nix = {
     settings = {
@@ -19,6 +24,22 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
+    };
+  };
+
+  #environment.systemPackages = with pkgs; [ nvd ];
+
+  system.activationScripts = {
+    diff = {
+      text = ''
+        PATH=$PATH:${
+          lib.makeBinPath [
+            pkgs.nvd
+            pkgs.nix
+          ]
+        }
+            nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -2)
+      '';
     };
   };
 }
