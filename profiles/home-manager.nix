@@ -1,6 +1,6 @@
 { config, inputs, ... }:
 {
-  imports = [ inputs.home-manager.nixosModule ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   home-manager = {
     useGlobalPkgs = true;
