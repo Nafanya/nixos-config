@@ -31,6 +31,7 @@
 
     ./hardware-configuration.nix
     ./gpu.nix
+    ./pci-passthrough.nix
     ./networking.nix
     ./disks.nix
     ./ssh-hosts.nix

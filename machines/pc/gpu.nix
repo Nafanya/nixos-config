@@ -28,18 +28,6 @@
     radv_force_pstate_peak_gfx11_dgpu = "false";
   };
 
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
-
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    open = false;
-    modesetting.enable = true;
-    powerManagement.enable = true;
-  };
-
   environment.systemPackages = [
     pkgs.cudaPackages.cudatoolkit
   ];
