@@ -9,9 +9,4 @@
     device = "/dev/disk/by-uuid/60A4-FDAC";
     fsType = "vfat";
   };
-
-  fileSystems."/mnt/videos" = {
-    device = "192.168.1.240:/videos";
-    fsType = "nfs";
-  };
 }
