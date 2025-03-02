@@ -53,7 +53,7 @@
 
       # video editor
       davinci-resolve
-      kdenlive
+      kdePackages.kdenlive
 
       # video player
       vlc
