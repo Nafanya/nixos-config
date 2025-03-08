@@ -26,7 +26,20 @@
 
     inputs.nix-minecraft.nixosModules.minecraft-servers
     {
-      nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+      nixpkgs.overlays = [
+        inputs.nix-minecraft.overlay
+
+        (self: super: {
+          linux-firmware = super.linux-firmware.overrideAttrs (oldAttrs: {
+            version = "44740031a34e61a47162f94961e3155c8c8470e2";
+            src = self.fetchzip {
+              url = "https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-${self.linux-firmware.version}.tar.gz";
+              hash = "sha256-SfjM+FgF8DMPUQGIK2EzWU7Cs8sdAFl0Mi1Q+OVRhto=";
+            };
+          });
+        })
+
+      ];
     }
 
     ./hardware-configuration.nix

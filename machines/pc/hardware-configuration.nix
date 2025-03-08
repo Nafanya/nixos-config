@@ -20,15 +20,24 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_6_12;
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
-  boot.zfs.extraPools = [ "zpool" ];
-  boot.zfs.package = pkgs.zfs_unstable;
+  boot.supportedFilesystems = lib.mkDefault [ "zfs" ];
+  boot.zfs.forceImportRoot = lib.mkDefault false;
+  boot.zfs.extraPools = lib.mkDefault [ "zpool" ];
+  boot.zfs.package = lib.mkDefault pkgs.zfs_unstable;
+
+  specialisation.experimental = {
+    configuration = {
+      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+      boot.supportedFilesystems = lib.mkForce { };
+      boot.zfs.extraPools = lib.mkForce [ ];
+      boot.zfs.package = lib.mkForce pkgs.zfs;
+    };
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
