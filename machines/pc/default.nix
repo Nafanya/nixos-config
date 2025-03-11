@@ -31,10 +31,10 @@
 
         (self: super: {
           linux-firmware = super.linux-firmware.overrideAttrs (oldAttrs: {
-            version = "44740031a34e61a47162f94961e3155c8c8470e2";
+            version = "4308879ea4fae7b02bdc802593d9ae3a48d38424";
             src = self.fetchzip {
               url = "https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-${self.linux-firmware.version}.tar.gz";
-              hash = "sha256-SfjM+FgF8DMPUQGIK2EzWU7Cs8sdAFl0Mi1Q+OVRhto=";
+              hash = "sha256-vVlKvskfMf/hzCrDBISritGfhjyBwNOhBBM5Bf7yjGY=";
             };
           });
         })
