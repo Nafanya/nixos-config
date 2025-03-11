@@ -29,10 +29,10 @@
 
         (self: super: {
           linux-firmware = super.linux-firmware.overrideAttrs (oldAttrs: {
-            version = "4308879ea4fae7b02bdc802593d9ae3a48d38424";
+            version = "20250311";
             src = self.fetchzip {
-              url = "https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-${self.linux-firmware.version}.tar.gz";
-              hash = "sha256-vVlKvskfMf/hzCrDBISritGfhjyBwNOhBBM5Bf7yjGY=";
+              url = "https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-${self.linux-firmware.version}.tar.xz ";
+              hash = "sha256-ZM7j+kUpmWJUQdAGbsfwOqsNV8oE0U2t6qnw0b7pT4g=";
             };
           });
         })
