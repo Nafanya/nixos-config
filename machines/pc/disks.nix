@@ -5,13 +5,7 @@
   ...
 }:
 {
-
-  services.zfs.autoScrub.enable = lib.mkDefault true;
-  specialisation.experimental = {
-    configuration = {
-      services.zfs.autoScrub.enable = lib.mkForce false;
-    };
-  };
+  services.zfs.autoScrub.enable = true;
 
   environment.systemPackages = with pkgs; [
     smartmontools

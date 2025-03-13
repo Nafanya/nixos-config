@@ -26,17 +26,6 @@
     {
       nixpkgs.overlays = [
         inputs.nix-minecraft.overlay
-
-        (self: super: {
-          linux-firmware = super.linux-firmware.overrideAttrs (oldAttrs: {
-            version = "20250311";
-            src = self.fetchzip {
-              url = "https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-${self.linux-firmware.version}.tar.xz ";
-              hash = "sha256-ZM7j+kUpmWJUQdAGbsfwOqsNV8oE0U2t6qnw0b7pT4g=";
-            };
-          });
-        })
-
       ];
     }
 
