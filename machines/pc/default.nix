@@ -22,11 +22,11 @@
 
     inputs.self.nixosModules.profiles.server.syncthing
     inputs.self.nixosModules.profiles.server.nfs
-    inputs.self.nixosModules.profiles.server.minecraft-test
 
-    inputs.nix-minecraft.nixosModules.minecraft-servers
     {
-      nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+      nixpkgs.overlays = [
+        inputs.nix-minecraft.overlay
+      ];
     }
 
     ./hardware-configuration.nix

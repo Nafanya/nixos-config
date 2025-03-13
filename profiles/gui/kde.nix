@@ -4,10 +4,6 @@
   services = {
     xserver = {
       enable = true;
-      xkb = {
-        options = "grp:caps_toggle";
-        layout = "us,ru";
-      };
     };
     dbus.enable = true;
 
