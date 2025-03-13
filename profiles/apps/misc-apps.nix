@@ -52,7 +52,6 @@
       helvum
 
       # video editor
-      davinci-resolve
       kdePackages.kdenlive
 
       # video player
