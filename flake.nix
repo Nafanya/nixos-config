@@ -25,6 +25,8 @@
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    lact-pr.url = "github:cything/nixpkgs?ref=lact";
   };
 
   outputs =
@@ -36,6 +38,7 @@
       home-manager,
       deploy-rs,
       nix-minecraft,
+      lact-pr,
       ...
     }@inputs:
     let
