@@ -17,8 +17,8 @@
   hardware.sensor.hddtemp = {
     enable = true;
     drives = [
-      "/dev/sda"
       "/dev/sdb"
+      "/dev/sdc"
     ];
   };
 }
