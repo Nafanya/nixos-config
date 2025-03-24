@@ -84,9 +84,8 @@
               urls = [ { template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; } ];
               definedAliases = [ "@aw" ];
             };
-            "Bing".metaData.hidden = true;
-            "Google".metaData.alias = "@g";
-            # builtin engines only support specifying one additional alias}
+            bing.metaData.hidden = true;
+            google.metaData.alias = "@g";
           };
         };
       };
