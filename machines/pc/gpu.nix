@@ -17,15 +17,22 @@
       libva
       libva-utils
       vdpauinfo
+
+      # https://wiki.nixos.org/wiki/AMD_GPU#Vulkan
+      amdvlk
+    ];
+
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
     ];
   };
 
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
-  environment.sessionVariables = {
-    # Seems to fix constant GPU throttling
-    # See https://gitlab.freedesktop.org/mesa/mesa/-/issues/11744#note_2536404
-    radv_force_pstate_peak_gfx11_dgpu = "false";
+  # Force radv
+  environment.variables = {
+    AMD_VULKAN_ICD = "RADV";
+    VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
   };
 
   environment.systemPackages = [
