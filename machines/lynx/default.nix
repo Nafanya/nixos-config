@@ -51,5 +51,7 @@
     lidSwitchDocked = "ignore";
   };
 
+  services.tailscale.enable = true;
+
   system.stateVersion = "22.11";
 }
