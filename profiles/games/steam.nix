@@ -26,7 +26,22 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
+  };
+
+  # Currently CAP_SYS_NICE doesn't work well with steam FHS
+  # Using ananicy intead as temporary fix
+  # See https://github.com/NixOS/nixpkgs/issues/351516#issuecomment-2607186592
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-cpp;
+    extraRules = [
+      {
+        "name" = "gamescope";
+        "nice" = -20;
+      }
+    ];
   };
 }
