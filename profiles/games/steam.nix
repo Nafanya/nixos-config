@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ steamcmd ];
+  environment.systemPackages = with pkgs; [
+    steamcmd
+    steamtinkerlaunch
+  ];
 
   hardware.xone.enable = true;
   hardware.steam-hardware.enable = true;
