@@ -12,8 +12,6 @@
     inputs.self.nixosModules.profiles.server.acme
     inputs.self.nixosModules.profiles.server.nginx
 
-    inputs.self.nixosModules.profiles.server.minecraft
-
     inputs.self.nixosModules.profiles.server.vaultwarden
     inputs.self.nixosModules.profiles.server.website
     inputs.self.nixosModules.profiles.server.xray
