@@ -17,13 +17,6 @@
       libva
       libva-utils
       vdpauinfo
-
-      # https://wiki.nixos.org/wiki/AMD_GPU#Vulkan
-      amdvlk
-    ];
-
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
     ];
   };
 
