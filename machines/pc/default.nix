@@ -16,6 +16,7 @@
 
     inputs.self.nixosModules.profiles.games.steam
     inputs.self.nixosModules.profiles.games.gamemode
+    inputs.self.nixosModules.profiles.games.openrazer
     inputs.self.nixosModules.profiles.games.minecraft
     inputs.self.nixosModules.profiles.openrgb
 
