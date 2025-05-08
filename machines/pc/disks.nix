@@ -5,6 +5,8 @@
   ...
 }:
 {
+  services.zfs.autoScrub.enable = true;
+
   environment.systemPackages = with pkgs; [
     smartmontools
     kdePackages.plasma-disks

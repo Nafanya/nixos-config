@@ -25,6 +25,10 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
+  boot.zfs.extraPools = [ "zpool" ];
+  boot.zfs.package = pkgs.zfs_unstable;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5d09542d-d9b8-457d-9b24-51e146310c73";
