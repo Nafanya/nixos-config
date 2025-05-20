@@ -33,6 +33,11 @@
           user = "root";
           identityFile = "~/.ssh/id_pc@hetzner_nikitoci.com";
         };
+        "tamarin" = {
+          hostname = "65.109.164.29";
+          user = "root";
+          identityFile = "~/.ssh/id_pc@hetzner_nikitoci.com";
+        };
       };
     };
   };
