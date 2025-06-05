@@ -92,11 +92,11 @@
     },
     "lact-pr": {
       "locked": {
-        "lastModified": 1745346107,
-        "narHash": "sha256-+iUn89qrKqBXD6vd8TvFJPwzuZ9iiV3FzX7I/gG0FLQ=",
+        "lastModified": 1748271415,
+        "narHash": "sha256-rTOBSoeaZAj/iQCx+bD19a4PYIaoyMPKXRZvfH2IvzU=",
         "owner": "cything",
         "repo": "nixpkgs",
-        "rev": "21846b25c4e56f24c70db76993ca66236449a5ae",
+        "rev": "afb5559dbfcadd37d715a168eecf6d10fced13cd",
         "type": "github"
       },
       "original": {

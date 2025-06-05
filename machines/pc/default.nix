@@ -23,6 +23,8 @@
     inputs.self.nixosModules.profiles.server.syncthing
     inputs.self.nixosModules.profiles.server.nfs
 
+    inputs.self.nixosModules.profiles.local-llm
+
     {
       nixpkgs.overlays = [
         inputs.nix-minecraft.overlay
