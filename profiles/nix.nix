@@ -27,19 +27,5 @@
     };
   };
 
-  #environment.systemPackages = with pkgs; [ nvd ];
-
-  system.activationScripts = {
-    diff = {
-      text = ''
-        PATH=$PATH:${
-          lib.makeBinPath [
-            pkgs.nvd
-            pkgs.nix
-          ]
-        }
-            nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -2)
-      '';
-    };
-  };
+  environment.systemPackages = with pkgs; [ nvd ];
 }
