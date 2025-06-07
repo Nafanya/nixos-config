@@ -90,22 +90,6 @@
         "type": "github"
       }
     },
-    "lact-pr": {
-      "locked": {
-        "lastModified": 1748271415,
-        "narHash": "sha256-rTOBSoeaZAj/iQCx+bD19a4PYIaoyMPKXRZvfH2IvzU=",
-        "owner": "cything",
-        "repo": "nixpkgs",
-        "rev": "afb5559dbfcadd37d715a168eecf6d10fced13cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cything",
-        "ref": "lact",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -296,7 +280,6 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
-        "lact-pr": "lact-pr",
         "nix-darwin": "nix-darwin",
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",

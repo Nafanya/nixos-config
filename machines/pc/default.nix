@@ -48,12 +48,6 @@
               '';
           });
         })
-
-        (final: prev: {
-          lact = final.callPackage "${inputs.lact-pr}/pkgs/by-name/la/lact/package.nix" {
-            hwdata = final.callPackage "${inputs.lact-pr}/pkgs/by-name/hw/hwdata/package.nix" { };
-          };
-        })
       ];
     }
 
