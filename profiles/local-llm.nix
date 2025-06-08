@@ -16,7 +16,7 @@
   ];
 
   services.llama-cpp = {
-    enable = false;
+    enable = true;
     package = pkgs.llama-cpp.override {
       rocmSupport = true;
       vulkanSupport = true;
@@ -25,13 +25,16 @@
     host = "0.0.0.0";
     port = 8080;
     openFirewall = true;
-    model = "/mnt/data/downloads/unsloth_Qwen3-30B-A3B-GGUF_Qwen3-30B-A3B-UD-IQ1_S.gguf";
+    model = "/mnt/data/downloads/Qwen_Qwen2.5-Coder-7B-Instruct-GGUF_qwen2.5-coder-7b-instruct-q8_0-00001-of-00003.gguf";
     extraFlags = [
       "--flash-attn"
       "--gpu-layers"
       "99"
       "--device"
       "Vulkan0"
+      "--parallel"
+      "4"
+      "--jinja"
     ];
   };
 }
