@@ -49,17 +49,6 @@
           });
         })
 
-        (final: prev: {
-          rpp = prev.rpp.overrideAttrs (oldAttrs: {
-            version = "6.4.1";
-
-            src = oldAttrs.src.override {
-              rev = "rocm-6.4.1";
-              hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-            };
-          });
-        })
-
         # Enable gfx1201 for ROCm
         # https://github.com/NixOS/nixpkgs/pull/414610
         (final: prev: {
