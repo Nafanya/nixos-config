@@ -10,16 +10,14 @@
   environment.systemPackages = with pkgs; [
     (llama-cpp.override {
       rocmSupport = true;
-      vulkanSupport = true;
       openclSupport = true;
     })
   ];
 
   services.llama-cpp = {
-    enable = true;
+    enable = false;
     package = pkgs.llama-cpp.override {
       rocmSupport = true;
-      vulkanSupport = true;
       openclSupport = true;
     };
     host = "0.0.0.0";
@@ -31,9 +29,7 @@
       "--gpu-layers"
       "99"
       "--device"
-      "Vulkan0"
-      "--parallel"
-      "4"
+      "ROCm0"
       "--jinja"
     ];
   };
