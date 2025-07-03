@@ -20,6 +20,7 @@
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG0rNQhiU4hXq45bbQk6H0RqGZ1cMTuMc5a3yGpfnTkP nikita.yaschenko@gmail.com"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBD/7H19xdHEMBJDQp2FWtgUduTx6ZW6xghZJsQEpU6O nikita.yaschenko@gmail.com"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4zMr2LItR1a2D3v+ouTwGMJubUS1naON/RSGPJguTp nikita.yaschenko@gmail.com" # cf
         ];
       };
     };
