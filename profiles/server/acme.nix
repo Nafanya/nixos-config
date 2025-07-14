@@ -11,7 +11,7 @@
 
     defaults = {
       email = "nikita.yaschenko@gmail.com";
-      dnsResolver = "1.1.1.1:53"; # Cloudflare
+      dnsResolver = "185.12.64.1"; # Hetzner
       dnsProvider = "hetzner";
       environmentFile = config.sops.secrets."creds/hetzner.env".path;
       postRun = "systemctl reload nginx.service";
