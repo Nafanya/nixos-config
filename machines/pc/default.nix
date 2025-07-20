@@ -48,58 +48,6 @@
               '';
           });
         })
-
-        # Enable gfx1201 for ROCm
-        # https://github.com/NixOS/nixpkgs/pull/414610
-        (final: prev: {
-          rocmPackages = prev.rocmPackages // rec {
-            clr =
-              (prev.rocmPackages.clr.override {
-                localGpuTargets = [ "gfx1201" ];
-              }).overrideAttrs
-                (oldAttrs: {
-                  passthru = oldAttrs.passthru // {
-                    gpuTargets = oldAttrs.passthru.gpuTargets ++ [ "gfx1201" ];
-                  };
-                });
-
-            rocminfo = (
-              prev.rocmPackages.rocminfo.override {
-                clr = clr;
-              }
-            );
-
-            rocblas = (
-              prev.rocmPackages.rocblas.override {
-                clr = clr;
-              }
-            );
-
-            rocsparse = (
-              prev.rocmPackages.rocsparse.override {
-                clr = clr;
-              }
-            );
-
-            rocsolver = (
-              prev.rocmPackages.rocsolver.override {
-                clr = clr;
-              }
-            );
-
-            hipblas = (
-              prev.rocmPackages.hipblas.override {
-                clr = clr;
-              }
-            );
-
-            hipblaslt = (
-              prev.rocmPackages.hipblaslt.override {
-                clr = clr;
-              }
-            );
-          };
-        })
       ];
     }
 
