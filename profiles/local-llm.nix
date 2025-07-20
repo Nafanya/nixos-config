@@ -6,14 +6,6 @@
   ...
 }:
 {
-
-  environment.systemPackages = with pkgs; [
-    (llama-cpp.override {
-      rocmSupport = true;
-      openclSupport = true;
-    })
-  ];
-
   services.llama-cpp = {
     enable = false;
     package = pkgs.llama-cpp.override {
