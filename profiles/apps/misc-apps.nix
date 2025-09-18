@@ -19,6 +19,7 @@
       sops
       nvd # TODO: move to "nix dev shell"
       deploy-rs
+      nix-output-monitor
 
       #misc
       ffmpeg
