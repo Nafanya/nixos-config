@@ -25,6 +25,8 @@
 
     inputs.self.nixosModules.profiles.local-llm
 
+    inputs.self.nixosModules.profiles.rust
+
     {
       nixpkgs.overlays = [
         inputs.nix-minecraft.overlay
@@ -37,15 +39,13 @@
           llama-cpp = prev.llama-cpp.overrideAttrs (oldAttrs: {
             # Append to the existing postPatch.
             # The `oldAttrs.postPatch or ""` handles cases where postPatch might not exist.
-            postPatch =
-              (oldAttrs.postPatch or "")
-              + ''
-                echo "Applying custom patch to ggml/src/ggml-vulkan/CMakeLists.txt"
+            postPatch = (oldAttrs.postPatch or "") + ''
+              echo "Applying custom patch to ggml/src/ggml-vulkan/CMakeLists.txt"
 
-                # This command finds the line containing "DCMAKE_RUNTIME_OUTPUT_DIRECTORY"
-                # in the specified CMake file and deletes it.
-                sed -i '/DCMAKE_RUNTIME_OUTPUT_DIRECTORY/d' ggml/src/ggml-vulkan/CMakeLists.txt
-              '';
+              # This command finds the line containing "DCMAKE_RUNTIME_OUTPUT_DIRECTORY"
+              # in the specified CMake file and deletes it.
+              sed -i '/DCMAKE_RUNTIME_OUTPUT_DIRECTORY/d' ggml/src/ggml-vulkan/CMakeLists.txt
+            '';
           });
         })
       ];
