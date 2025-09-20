@@ -35,7 +35,7 @@
       pciutils # for `lspci`
       sysstat
       usbutils # for `lsusb`
-      nvtopPackages.full
+      nvtopPackages.amd
       smartmontools
 
       # mtp
