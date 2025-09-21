@@ -9,6 +9,9 @@
     "${pkgs.rtkit}/libexec/rtkit-daemon --no-canary"
   ];
 
+  # AirPlay/RAOP discovery
+  services.avahi.enable = true;
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -20,6 +23,8 @@
       enable = true;
       support32Bit = true;
     };
+    raopOpenFirewall = true;
+
     extraConfig = {
       pipewire."95-obs-sink" = {
         "context.objects" = [
@@ -36,6 +41,26 @@
             };
           }
         ];
+      };
+      pipewire."10-airplay" = {
+        "context.modules" = [
+          {
+            name = "libpipewire-module-raop-discover";
+
+            # increase the buffer size if you get dropouts/glitches
+            # args = {
+            #   "raop.latency.ms" = 500;
+            # };
+          }
+        ];
+      };
+      pipewire."50-netter-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 128; # 32 is default
+          "default.clock.min-quantum" = 16;
+          "default.clock.max-quantum" = 768;
+        };
       };
     };
   };
