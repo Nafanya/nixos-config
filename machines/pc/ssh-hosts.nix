@@ -38,6 +38,12 @@
           user = "root";
           identityFile = "~/.ssh/id_pc@hetzner_nikitoci.com";
         };
+        "hexabytes" = {
+          hostname = "194.104.94.47";
+          user = "nikita";
+          port = 19196;
+          identityFile = "~/.ssh/id_pc@hexabytes.se";
+        };
       };
     };
   };
