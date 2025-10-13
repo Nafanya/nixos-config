@@ -12,8 +12,6 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       rocmPackages.clr
-      rocmPackages.rocblas
-      rocmPackages.hipblas
       rocmPackages.rocminfo
       rocmPackages.rocm-runtime
       libva
