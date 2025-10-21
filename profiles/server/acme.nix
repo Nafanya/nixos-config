@@ -11,7 +11,6 @@
 
     defaults = {
       email = "nikita.yaschenko@gmail.com";
-      dnsResolver = "185.12.64.1"; # Hetzner
       dnsProvider = "hetzner";
       environmentFile = config.sops.secrets."creds/hetzner.env".path;
       postRun = "systemctl reload nginx.service";
