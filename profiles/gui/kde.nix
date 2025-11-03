@@ -33,7 +33,7 @@
       pavucontrol
 
       clinfo
-      glxinfo
+      mesa-demos
       vulkan-tools
       wayland-utils
     ]
