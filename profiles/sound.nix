@@ -57,9 +57,9 @@
       pipewire."50-netter-latency" = {
         "context.properties" = {
           "default.clock.rate" = 48000;
-          "default.clock.quantum" = 128; # 32 is default
-          "default.clock.min-quantum" = 16;
-          "default.clock.max-quantum" = 768;
+          "default.clock.quantum" = 2048; # 32 is default
+          "default.clock.min-quantum" = 2048;
+          "default.clock.max-quantum" = 2048;
         };
       };
     };
