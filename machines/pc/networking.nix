@@ -7,6 +7,8 @@
 {
   imports = [ inputs.self.nixosModules.modules.xray-nikitoci ];
 
+  users.users.nikita.extraGroups = [ "networkmanager" ];
+
   networking = {
     hostName = "pc";
     hostId = "96b954d2";
@@ -14,6 +16,8 @@
       "1.1.1.1"
       "8.8.8.8"
     ];
+
+    networkmanager.enable = true;
 
     firewall.enable = true;
     firewall.allowedTCPPorts = [ ];
