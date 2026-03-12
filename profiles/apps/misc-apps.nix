@@ -6,7 +6,6 @@
       btop
       file
       fzf # TODO: use hm option?
-      neofetch
       rclone
       tree
       unzip
@@ -50,7 +49,6 @@
       pavucontrol
       playerctl
       qjackctl
-      helvum
 
       # video editor
       kdePackages.kdenlive
