@@ -57,6 +57,10 @@
       # video player
       vlc
       streamlink
+
+      # ai
+      opencode
+      t
     ];
   };
 }
