@@ -25,6 +25,8 @@
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    zwift.url = "github:netbrain/zwift";
   };
 
   outputs =

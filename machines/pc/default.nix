@@ -19,6 +19,8 @@
     inputs.self.nixosModules.profiles.games.openrazer
     inputs.self.nixosModules.profiles.games.minecraft
 
+    inputs.zwift.nixosModules.zwift
+
     inputs.self.nixosModules.profiles.server.syncthing
     inputs.self.nixosModules.profiles.server.nfs
 
@@ -69,6 +71,8 @@
     };
     plymouth.enable = true;
   };
+
+  programs.zwift.enable = true;
 
   system.stateVersion = "24.05";
 }
