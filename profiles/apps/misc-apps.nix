@@ -13,6 +13,8 @@
       which
       zip
 
+      wl-clipboard
+
       # nix
       home-manager
       sops
