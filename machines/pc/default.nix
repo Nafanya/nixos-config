@@ -31,24 +31,6 @@
     {
       nixpkgs.overlays = [
         inputs.nix-minecraft.overlay
-
-        # Remove when fixed
-        # 1. https://github.com/NixOS/nixpkgs/issues/409284
-        # 2. hacky fix from upstream https://github.com/ggml-org/llama.cpp/pull/14047
-        (final: prev: {
-          # Override the llama-cpp package
-          llama-cpp = prev.llama-cpp.overrideAttrs (oldAttrs: {
-            # Append to the existing postPatch.
-            # The `oldAttrs.postPatch or ""` handles cases where postPatch might not exist.
-            postPatch = (oldAttrs.postPatch or "") + ''
-              echo "Applying custom patch to ggml/src/ggml-vulkan/CMakeLists.txt"
-
-              # This command finds the line containing "DCMAKE_RUNTIME_OUTPUT_DIRECTORY"
-              # in the specified CMake file and deletes it.
-              sed -i '/DCMAKE_RUNTIME_OUTPUT_DIRECTORY/d' ggml/src/ggml-vulkan/CMakeLists.txt
-            '';
-          });
-        })
       ];
     }
 
