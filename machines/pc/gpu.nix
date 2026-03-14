@@ -20,6 +20,13 @@
     ];
   };
 
+  # TODO: seems like below enables clr.icd and clr
+  # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/services/hardware/amdgpu.nix
+  # featuremask is turned on here now
+  hardware.amdgpu = {
+    opencl.enable = true;
+  };
+
   systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
   # Force radv

@@ -19,10 +19,6 @@
     };
     enable = true;
   };
-  boot.kernelParams = [
-    # Enable overclocking -- needed by LACT
-    "amdgpu.ppfeaturemask=0xFFFFFFFF"
-  ];
 
   programs.gamemode = {
     enable = true;
