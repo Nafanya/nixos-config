@@ -26,6 +26,8 @@
 
     #inputs.self.nixosModules.profiles.local-llm
 
+    inputs.self.nixosModules.profiles.ai
+
     inputs.self.nixosModules.profiles.rust
 
     {

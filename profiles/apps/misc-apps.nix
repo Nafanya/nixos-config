@@ -59,10 +59,6 @@
       # video player
       vlc
       # streamlink # fails to build 2026-07-08
-
-      # ai
-      opencode
-      t
     ];
   };
 }
