@@ -5,11 +5,12 @@
   home-manager.users.nikita = {
     programs.ssh = {
       enable = true;
-      matchBlocks = {
-        #"*" = {
-        #  identitiesOnly = true;
-        #  identityFile = "~/.ssh/nikitoci.pub";
-        #};
+      enableDefaultConfig = true;
+      settings = {
+        "*" = {
+          # identitiesOnly = true;
+          # identityFile = "~/.ssh/nikitoci.pub";
+        };
         "lynx" = {
           hostname = "192.168.1.250";
           user = "nikita";

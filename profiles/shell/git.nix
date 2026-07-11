@@ -5,17 +5,12 @@
       enable = true;
       lfs.enable = true;
 
-      userName = "Nikita Iashchenko";
-      userEmail = "nikita.yaschenko@gmail.com";
+      settings = {
+        user = {
+          name = "Nikita Iashchenko";
+          email = "nikita.yaschenko@gmail.com";
+        };
 
-      diff-so-fancy = {
-        enable = true;
-        pagerOpts = [
-          "--tabs=4"
-          "-R"
-        ];
-      };
-      extraConfig = {
         submodule.recurse = "true";
 
         github.user = "nafanya";
@@ -40,6 +35,15 @@
           all = true;
         };
       };
+    };
+
+    programs.diff-so-fancy = {
+      enable = true;
+      enableGitIntegration = true;
+      pagerOpts = [
+        "--tabs=4"
+        "-R"
+      ];
     };
   };
 }

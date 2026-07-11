@@ -8,6 +8,7 @@
   home-manager.users.nikita = {
     programs.firefox = {
       enable = true;
+      configPath = ".mozilla/firefox";
       #TODO: fix this and other conditional for linux/darwin
       package = if pkgs.stdenv.isLinux then pkgs.firefox else pkgs.firefox-bin;
       profiles.nikita = {

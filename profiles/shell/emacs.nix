@@ -3,7 +3,7 @@
   home-manager.users.nikita = {
     #TODO: move to "emacs.extraPacakges"
     home.packages = with pkgs; [
-      nixfmt-rfc-style
+      nixfmt
       sqlite.dev
     ];
 
