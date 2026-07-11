@@ -20,6 +20,10 @@
     ];
   };
 
+  boot.kernelParams = [
+    "amdgpu.sg_display=0"
+  ];
+
   # TODO: seems like below enables clr.icd and clr
   # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/services/hardware/amdgpu.nix
   # featuremask is turned on here now
