@@ -35,7 +35,13 @@
         bind -n M-Down select-pane -D
         set -g mouse on
       '';
-      plugins = with pkgs.tmuxPlugins; [ yank ];
+      plugins = with pkgs.tmuxPlugins; [
+        catppuccin
+        pain-control
+        resurrect
+        sensible
+        yank
+      ];
     };
   };
 }
