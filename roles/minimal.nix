@@ -7,6 +7,7 @@
       neovim
       nix
       shell.git
+      shell.ghostty
       shell.kitty
       shell.tmux
       shell.zsh
