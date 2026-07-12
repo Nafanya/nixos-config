@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ inputs, ... }:
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
@@ -12,7 +12,10 @@
       home = {
         username = "nikita";
         homeDirectory = "/home/nikita";
-        stateVersion = config.system.stateVersion;
+        # Pinned independently of system.stateVersion: tying them together
+        # makes home-manager behave differently per host and silently
+        # changes home-manager defaults if the system value is ever bumped.
+        stateVersion = "24.05";
       };
     };
   };

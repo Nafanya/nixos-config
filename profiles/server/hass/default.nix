@@ -25,7 +25,8 @@
       "tplink_tapo"
     ];
     extraPackages = python3Packages: with python3Packages; [ securetar ];
-    customComponents = with pkgs.home-assistant-custom-components; [ govee-lan ];
+    # govee-lan custom component was removed from nixpkgs; the built-in
+    # govee_light_local integration (enabled above) replaces it.
     config = {
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/

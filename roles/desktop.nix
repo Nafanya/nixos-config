@@ -24,6 +24,8 @@
         easyeffects
 
         shell.emacs
+        shell.ghostty
+        shell.kitty
       ]
     );
 

@@ -15,7 +15,6 @@
     inputs.self.nixosModules.profiles.server.homebridge
     inputs.self.nixosModules.profiles.server.jellyfin
     inputs.self.nixosModules.profiles.server.jellyseerr
-    #    inputs.self.nixosModules.profiles.server.nextcloud
 
     ./hardware-configuration.nix
     ./mounts.nix

@@ -2,31 +2,42 @@
   description = "Nikita's NixOS Flake";
 
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    nixpkgs-firefox-darwin = {
+      url = "github:bandithedoge/nixpkgs-firefox-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-    zwift.url = "github:netbrain/zwift";
+    zwift = {
+      url = "github:netbrain/zwift";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,7 +48,6 @@
       nix-darwin,
       home-manager,
       deploy-rs,
-      nix-minecraft,
       ...
     }@inputs:
     let
@@ -82,11 +92,13 @@
       nixosConfigurations =
         with nixpkgs.lib;
         let
-          hosts = debug.traceVal (builtins.attrNames (builtins.readDir ./machines));
+          hosts = builtins.attrNames (builtins.readDir ./machines);
           mkHost =
             name:
             let
-              system = builtins.readFile (./machines + "/${name}/system.txt");
+              # fileContents strips the trailing newline; builtins.readFile
+              # keeps it and produces an invalid system like "x86_64-linux\n".
+              system = fileContents (./machines + "/${name}/system.txt");
             in
             nixosSystem {
               inherit system;
@@ -96,7 +108,6 @@
               ];
               specialArgs = {
                 inherit inputs;
-                flake-inputs = inputs;
               };
             };
         in

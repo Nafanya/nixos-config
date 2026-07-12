@@ -22,19 +22,10 @@
     inputs.zwift.nixosModules.zwift
 
     inputs.self.nixosModules.profiles.server.syncthing
-    #inputs.self.nixosModules.profiles.server.nfs
-
-    #inputs.self.nixosModules.profiles.local-llm
 
     inputs.self.nixosModules.profiles.ai
 
     inputs.self.nixosModules.profiles.rust
-
-    {
-      nixpkgs.overlays = [
-        inputs.nix-minecraft.overlay
-      ];
-    }
 
     ./hardware-configuration.nix
     ./gpu.nix
