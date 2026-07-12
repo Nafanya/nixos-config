@@ -4,7 +4,12 @@
   # details gathered from the active system.
   networking = {
     nameservers = [ "8.8.8.8" ];
-    defaultGateway = "172.31.1.1";
+    # interface is required: since the scripted-networking rework a gateway
+    # without one is silently ignored and the host boots with no default route
+    defaultGateway = {
+      address = "172.31.1.1";
+      interface = "eth0";
+    };
     defaultGateway6 = {
       address = "fe80::1";
       interface = "eth0";
