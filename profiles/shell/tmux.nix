@@ -11,6 +11,10 @@
       enable = true;
       sensibleOnTop = false;
       extraConfig = ''
+        unbind C-b
+        set -g prefix C-a
+        bind C-a send-prefix
+
         set -g default-terminal "xterm-256color"
         set -ag terminal-overrides ",xterm-256color:RGB"
         set-option -g default-shell ${pkgs.zsh}/bin/zsh
@@ -24,6 +28,8 @@
         bind l select-pane -R
 
         bind-key x kill-pane
+
+        bind c new-window -c "#{pane_current_path}"
 
         set -g set-titles-string ' #{pane_title} '
 
